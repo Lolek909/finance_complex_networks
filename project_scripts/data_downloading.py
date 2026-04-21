@@ -12,7 +12,7 @@ tickers = {
 
 all_tickers = [item for sublist in tickers.values() for item in sublist]
 sector_map = {ticker: sector for sector, t_list in tickers.items() for ticker in t_list}
-FILE_NAME = "../finance_complex_networks/data_finance/stock_data_1m.csv"
+FILE_NAME = "../data_finance/stock_data_1m.csv"
 
 # 2. Pobieranie danych z obsługą błędów i zapisem do pliku
 if not os.path.exists(FILE_NAME):
