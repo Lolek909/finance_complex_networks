@@ -1,0 +1,11 @@
+{
+    "nodes": 40,
+    "edges": 643,
+    "density": 0.41217948717948716,
+    "avg_degree": 32.15,
+    "max_degree": 48,
+    "components": 1,
+    "window_size": 60,
+    "threshold": 0.2,
+    "n_windows": 104
+}
