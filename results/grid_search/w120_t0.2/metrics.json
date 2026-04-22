@@ -1,9 +1,9 @@
 {
     "nodes": 40,
-    "edges": 539,
-    "density": 0.3455128205128205,
-    "avg_degree": 26.95,
-    "max_degree": 38,
+    "edges": 378,
+    "density": 0.2423076923076923,
+    "avg_degree": 18.9,
+    "max_degree": 27,
     "components": 1,
     "window_size": 120,
     "threshold": 0.2,

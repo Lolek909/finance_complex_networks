@@ -1,10 +1,10 @@
 {
     "nodes": 40,
-    "edges": 316,
-    "density": 0.20256410256410257,
-    "avg_degree": 15.8,
-    "max_degree": 32,
-    "components": 1,
+    "edges": 181,
+    "density": 0.11602564102564103,
+    "avg_degree": 9.05,
+    "max_degree": 17,
+    "components": 2,
     "window_size": 60,
     "threshold": 0.4,
     "n_windows": 104
