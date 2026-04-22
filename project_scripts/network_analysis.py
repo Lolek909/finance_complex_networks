@@ -216,16 +216,18 @@ def analyze(G, meta):
 
 
 def save_degree_distribution(G, out_dir, name):
-
     degrees = [d for _, d in G.degree()]
-
-    # CSV
     df = pd.DataFrame({"degree": degrees})
     df.to_csv(f"{out_dir}/degree_distribution.csv", index=False)
-
-    # histogram
     plt.figure(figsize=(7,5))
-    plt.hist(degrees, bins=15, alpha=0.8, edgecolor="black")
+    sns.histplot(
+        degrees,
+        bins=15,
+        kde=True,
+        color="steelblue",
+        edgecolor="white",
+        linewidth=0.5
+    )
 
     plt.title(f"Degree distribution: {name}")
     plt.xlabel("Degree")
