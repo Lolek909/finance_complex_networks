@@ -1,0 +1,21 @@
+{
+    "modularity": 0.29867403616667004,
+    "nmi": 0.41808492031579597,
+    "ari": 0.29389689907169664,
+    "n_communities": 2,
+    "nodes": 40,
+    "edges": 643,
+    "density": 0.41217948717948716,
+    "avg_degree": 32.15,
+    "experiment": "w60_t0.2",
+    "window_size": 60,
+    "threshold": 0.2,
+    "diameter": 3,
+    "avg_shortest_path": 1.6705128205128206,
+    "tau_degree_betweenness": 0.01696283989019314,
+    "tau_degree_closeness": 0.32910136916191723,
+    "tau_betweenness_closeness": 0.2138103901664833,
+    "top_degree": "DHR, ABBV, AAPL, UNH, MRK",
+    "top_betweenness": "DHR, NVO, WFC, BAC, GS",
+    "top_closeness": "EQNR, DHR, MSFT, SHEL, WFC"
+}

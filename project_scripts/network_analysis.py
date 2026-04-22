@@ -5,13 +5,15 @@ import numpy as np
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import kendalltau
 
 from sklearn.metrics import normalized_mutual_info_score, adjusted_rand_score
 from networkx.algorithms.community import louvain_communities
 
 
-INPUT_DIR = "results"
-OUTPUT_DIR = "results/analysis"
+INPUT_DIR = "../results/grid_search"
+OUTPUT_DIR = "../results/analysis"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
@@ -30,7 +32,7 @@ def load_graphs():
         path = os.path.join(INPUT_DIR, folder)
 
         g_path = os.path.join(path, "graph.pkl")
-        m_path = os.path.join(path, "meta.json")
+        m_path = os.path.join(path, "metrics.json")
 
         if not os.path.exists(g_path):
             continue
@@ -55,7 +57,8 @@ def safe_modularity(G, comms):
 
 
 def get_louvain(G):
-    return louvain_communities(G, seed=42)
+    G_undirected = G.to_undirected()
+    return louvain_communities(G_undirected, seed=42)
 
 
 def build_labels(G):
@@ -240,9 +243,7 @@ def analyze(G, meta):
     return comms, metrics
 
 
-graphs = load_graphs()
 
-summary = []
 def save_degree_distribution(G, out_dir, name):
 
     degrees = [d for _, d in G.degree()]
@@ -262,44 +263,157 @@ def save_degree_distribution(G, out_dir, name):
     plt.tight_layout()
     plt.savefig(f"{out_dir}/degree_distribution.png")
     plt.close()
-for name, G, meta in graphs:
 
-    print(f"Processing {name}")
-
-    # largest component
-    largest_cc = max(nx.weakly_connected_components(G), key=len)
-    G = G.subgraph(largest_cc).copy()
-
-    out_dir = os.path.join(OUTPUT_DIR, name)
-    os.makedirs(out_dir, exist_ok=True)
-
-    comms, metrics = analyze(G, meta)
-
-    metrics["experiment"] = name
-    metrics["window_size"] = meta.get("window_size")
-    metrics["threshold"] = meta.get("threshold")
-
-    summary.append(metrics)
-
-    # save metrics
-    pd.DataFrame([metrics]).to_csv(f"{out_dir}/metrics.csv", index=False)
-
-    with open(f"{out_dir}/metrics.json", "w") as f:
-        json.dump(metrics, f, indent=4)
-
-    # save communities
-    with open(f"{out_dir}/communities.txt", "w") as f:
-        for i, c in enumerate(comms):
-            f.write(f"Community {i}: {list(c)}\n")
-
-    # plot
-    plot_dual_view(
-        G,
-        comms,
-        f"{out_dir}/graph_dual.png",
-        name
-    )
-    save_degree_distribution(G, out_dir, name)
+def plot_betweenness_centrality(G, out_dir, name):
+    betweenness = nx.betweenness_centrality(G)
+    plt.figure(figsize=(10, 6))
+    sns.histplot(list(betweenness.values()), bins=25, kde=True, color="steelblue", edgecolor="white", linewidth=0.5)
+    plt.title(f"Betweenness Centrality Distribution: {name}", fontsize=14)
+    plt.xlabel("Betweenness")
+    plt.ylabel("Count")
+    plt.tight_layout()
+    plt.savefig(f"{out_dir}/betweenness_distribution.png")
+    plt.close()
 
 
-pd.DataFrame(summary).to_csv(f"{OUTPUT_DIR}/summary_all.csv", index=False)
+def plot_closeness_centrality(G, out_dir, name):
+    closeness = nx.closeness_centrality(G)
+    plt.figure(figsize=(10, 6))
+    sns.histplot(list(closeness.values()), bins=25, kde=True, color="steelblue", edgecolor="white", linewidth=0.5)
+    plt.title(f"Closeness Centrality Distribution: {name}", fontsize=14)
+    plt.xlabel("Closeness")
+    plt.ylabel("Count")
+    plt.tight_layout()
+    plt.savefig(f"{out_dir}/closeness_distribution.png")
+    plt.close()
+
+
+def get_node_metrics_df(G) -> pd.DataFrame:
+    G_simple = G.to_undirected() if G.is_directed() else G
+
+    betweenness = nx.betweenness_centrality(G)
+    closeness = nx.closeness_centrality(G)
+    clustering = nx.clustering(G_simple)
+    pagerank = nx.pagerank(G)
+    degree = dict(G.degree())
+
+    df = pd.DataFrame({
+        "degree": pd.Series(degree),
+        "betweenness": pd.Series(betweenness),
+        "closeness": pd.Series(closeness),
+        "clustering": pd.Series(clustering),
+        "pagerank": pd.Series(pagerank)
+    })
+
+    return df.sort_values(by="pagerank", ascending=False)
+
+
+def calculate_kendall_tau(G):
+    degree = dict(nx.degree(G))
+    betweenness = nx.betweenness_centrality(G)
+    closeness = nx.closeness_centrality(G)
+
+    nodes = list(G.nodes())
+    deg_vals = [degree[n] for n in nodes]
+    bet_vals = [betweenness[n] for n in nodes]
+    close_vals = [closeness[n] for n in nodes]
+
+    ken_deg_bet, _ = kendalltau(deg_vals, bet_vals)
+    ken_deg_close, _ = kendalltau(deg_vals, close_vals)
+    ken_bet_close, _ = kendalltau(bet_vals, close_vals)
+
+    return {
+        "tau_degree_betweenness": float(ken_deg_bet) if not np.isnan(ken_deg_bet) else 0,
+        "tau_degree_closeness": float(ken_deg_close) if not np.isnan(ken_deg_close) else 0,
+        "tau_betweenness_closeness": float(ken_bet_close) if not np.isnan(ken_bet_close) else 0
+    }
+
+
+def get_top_nodes(G, n=5):
+    degree = dict(nx.degree(G))
+    betweenness = nx.betweenness_centrality(G)
+    closeness = nx.closeness_centrality(G)
+
+    return {
+        "top_degree": sorted(degree, key=degree.get, reverse=True)[:n],
+        "top_betweenness": sorted(betweenness, key=betweenness.get, reverse=True)[:n],
+        "top_closeness": sorted(closeness, key=closeness.get, reverse=True)[:n]
+    }
+
+
+def get_diameter_and_shortest_path(G):
+    if G.is_directed():
+        largest_cc = max(nx.weakly_connected_components(G), key=len)
+    else:
+        largest_cc = max(nx.connected_components(G), key=len)
+
+    G_largest = G.subgraph(largest_cc).copy()
+
+    try:
+        avg_shortest_path = nx.average_shortest_path_length(G_largest)
+        diameter = nx.diameter(G_largest)
+    except nx.NetworkXError:
+        avg_shortest_path = 0
+        diameter = 0
+
+    return diameter, avg_shortest_path
+
+def main():
+    graphs = load_graphs()
+
+    summary = []
+
+    for name, G, meta in graphs:
+
+        print(f"Processing {name}")
+
+        if G.number_of_nodes() == 0 or G.number_of_edges() == 0:
+            print(f"Pominięto {name} - pusty graf (brak węzłów lub krawędzi)")
+            continue
+
+        if G.is_directed():
+            largest_cc = max(nx.weakly_connected_components(G), key=len)
+        else:
+            largest_cc = max(nx.connected_components(G), key=len)
+        G = G.subgraph(largest_cc).copy()
+
+        out_dir = os.path.join(OUTPUT_DIR, name)
+        os.makedirs(out_dir, exist_ok=True)
+
+        comms, metrics = analyze(G, meta)
+
+        diameter, avg_shortest_path = get_diameter_and_shortest_path(G)
+        kendall_corrs = calculate_kendall_tau(G)
+        top_n = get_top_nodes(G, n=5)
+
+        metrics["experiment"] = name
+        metrics["window_size"] = meta.get("window_size")
+        metrics["threshold"] = meta.get("threshold")
+        metrics["diameter"] = diameter
+        metrics["avg_shortest_path"] = avg_shortest_path
+        metrics.update(kendall_corrs)
+        metrics.update({k: ", ".join(v) for k, v in top_n.items()})  # Konwersja list na stringi dla CSV
+
+        summary.append(metrics)
+
+        pd.DataFrame([metrics]).to_csv(f"{out_dir}/metrics.csv", index=False)
+        with open(f"{out_dir}/metrics.json", "w") as f:
+            json.dump(metrics, f, indent=4)
+
+        node_metrics_df = get_node_metrics_df(G)
+        node_metrics_df.to_csv(f"{out_dir}/node_metrics_centrality.csv", index_label="Node")
+
+        with open(f"{out_dir}/communities.txt", "w") as f:
+            for i, c in enumerate(comms):
+                f.write(f"Community {i}: {list(c)}\n")
+
+        plot_dual_view(G, comms, f"{out_dir}/graph_dual.png", name)
+        save_degree_distribution(G, out_dir, name)
+
+        plot_betweenness_centrality(G, out_dir, name)
+        plot_closeness_centrality(G, out_dir, name)
+
+    pd.DataFrame(summary).to_csv(f"{OUTPUT_DIR}/summary_all.csv", index=False)
+
+if __name__ == "__main__":
+    main()

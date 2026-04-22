@@ -1,0 +1,21 @@
+{
+    "modularity": 0.3382422669395655,
+    "nmi": 0.4672576343792965,
+    "ari": 0.34831236269223087,
+    "n_communities": 2,
+    "nodes": 40,
+    "edges": 536,
+    "density": 0.3435897435897436,
+    "avg_degree": 26.8,
+    "experiment": "w30_t0.4",
+    "window_size": 30,
+    "threshold": 0.4,
+    "diameter": 0,
+    "avg_shortest_path": 0,
+    "tau_degree_betweenness": 0.202244768471651,
+    "tau_degree_closeness": -0.08880054965118925,
+    "tau_betweenness_closeness": 0.29469056708419666,
+    "top_degree": "ABBV, JNJ, AAPL, LLY, PBR",
+    "top_betweenness": "NVDA, GS, DHR, V, MSFT",
+    "top_closeness": "GS, META, WFC, BAC, MSFT"
+}

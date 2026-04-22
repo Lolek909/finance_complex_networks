@@ -1,0 +1,2 @@
+modularity,nmi,ari,n_communities,nodes,edges,density,avg_degree,experiment,window_size,threshold,diameter,avg_shortest_path,tau_degree_betweenness,tau_degree_closeness,tau_betweenness_closeness,top_degree,top_betweenness,top_closeness
+0.3382422669395655,0.4672576343792965,0.34831236269223087,2,40,536,0.3435897435897436,26.8,w30_t0.4,30,0.4,0,0,0.202244768471651,-0.08880054965118925,0.29469056708419666,"ABBV, JNJ, AAPL, LLY, PBR","NVDA, GS, DHR, V, MSFT","GS, META, WFC, BAC, MSFT"
