@@ -1,0 +1,2 @@
+modularity,nmi,ari,n_communities,nodes,edges,density,avg_degree,experiment,window_size,threshold,diameter,avg_shortest_path,tau_degree_betweenness,tau_degree_closeness,tau_betweenness_closeness,top_degree,top_betweenness,top_closeness
+0.33398990323197486,0.3457700137627355,0.2733707590920185,3,40,316,0.20256410256410257,15.8,w60_t0.4,60,0.4,0,0,0.22869707101081874,0.24721957765303312,0.26667119124218175,"VLO, AAPL, ABBV, CVX, COP","SLB, PYPL, NVDA, BAC, UNH","JPM, SLB, BAC, AXP, GS"

@@ -1,0 +1,2 @@
+modularity,nmi,ari,n_communities,nodes,edges,density,avg_degree,experiment,window_size,threshold,diameter,avg_shortest_path,tau_degree_betweenness,tau_degree_closeness,tau_betweenness_closeness,top_degree,top_betweenness,top_closeness
+0.3152805222981855,0.46725763437929646,0.34831236269223087,2,40,683,0.4378205128205128,34.15,w30_t0.3,30,0.3,3,1.6653846153846155,0.09512662374836652,0.009416055803847431,0.35202928597904076,"JNJ, MRK, ABBV, PBR, MSFT","NVO, MSFT, WFC, GOOGL, BAC","MSFT, BAC, WFC, ADBE, JPM"

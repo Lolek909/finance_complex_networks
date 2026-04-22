@@ -1,0 +1,2 @@
+Community 0: ['AXP', 'GS', 'C', 'BAC', 'META', 'AMD', 'PYPL', 'AZN', 'V', 'JPM', 'MA', 'INTC', 'WFC', 'MS', 'TSLA', 'AMZN', 'ADBE']
+Community 1: ['VLO', 'GOOGL', 'JNJ', 'SHEL', 'TTE', 'COP', 'NVDA', 'PBR', 'DHR', 'TMO', 'EQNR', 'AAPL', 'UNH', 'BP', 'PFE', 'SLB', 'LLY', 'MRK', 'ABBV', 'CVX', 'XOM', 'MSFT', 'NVO']

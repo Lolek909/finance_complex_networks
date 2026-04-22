@@ -1,0 +1,2 @@
+modularity,nmi,ari,n_communities,nodes,edges,density,avg_degree,experiment,window_size,threshold,diameter,avg_shortest_path,tau_degree_betweenness,tau_degree_closeness,tau_betweenness_closeness,top_degree,top_betweenness,top_closeness
+0.47472284474508153,0.5917618465836771,0.4719832522759113,5,38,214,0.15220483641536273,11.263157894736842,w120_t0.4,120,0.4,0,0,0.3935177781132803,0.6730507959586881,0.4494746348194046,"COP, CVX, XOM, BP, MA","DHR, ABBV, VLO, MA, ADBE","MSFT, MA, BAC, COP, CVX"

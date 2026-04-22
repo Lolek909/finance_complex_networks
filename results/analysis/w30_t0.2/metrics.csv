@@ -1,0 +1,2 @@
+modularity,nmi,ari,n_communities,nodes,edges,density,avg_degree,experiment,window_size,threshold,diameter,avg_shortest_path,tau_degree_betweenness,tau_degree_closeness,tau_betweenness_closeness,top_degree,top_betweenness,top_closeness
+0.2945463817683256,0.46725763437929646,0.34831236269223087,2,40,846,0.5423076923076923,42.3,w30_t0.2,30,0.2,3,1.4852564102564103,0.32838666359713065,0.3345952282854653,0.6020069960203899,"MSFT, PBR, GOOGL, SHEL, JPM","NVO, MSFT, SHEL, WFC, GOOGL","ADBE, BAC, JPM, MSFT, WFC"
