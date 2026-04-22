@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
-  <meta lastmodifieddate="2026-04-21">
-    <creator>NetworkX 3.5</creator>
+  <meta lastmodifieddate="2026-04-22">
+    <creator>NetworkX 3.6.1</creator>
   </meta>
   <graph defaultedgetype="directed" mode="static" name="">
     <attributes mode="static" class="edge">
@@ -50,2369 +50,1814 @@
       <node id="XOM" label="XOM" />
     </nodes>
     <edges>
-      <edge source="AAPL" target="ABBV" id="0" weight="0.4933738562381799">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="AAPL" target="BAC" id="1" weight="0.3174625161099365">
+      <edge source="AAPL" target="ABBV" id="0" weight="0.5652630639650046">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="AAPL" target="BP" id="2" weight="0.5692446974088897">
+      <edge source="AAPL" target="BAC" id="1" weight="0.5443299384080645">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="AAPL" target="COP" id="3" weight="0.6860471114697096">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="AAPL" target="CVX" id="4" weight="0.7280743560872597">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="AAPL" target="DHR" id="5" weight="0.5502510533711099">
+      <edge source="AAPL" target="COP" id="2" weight="0.39355803974268905">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="AAPL" target="EQNR" id="6" weight="0.4953579070730815">
+      <edge source="AAPL" target="GOOGL" id="3" weight="0.5482587358552226">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="AAPL" target="JPM" id="4" weight="0.38866943461198644">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="AAPL" target="GOOGL" id="7" weight="0.5311858961455943">
+      <edge source="AAPL" target="MA" id="5" weight="0.5744273045224259">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="AAPL" target="JNJ" id="8" weight="0.47845933613928915">
+      <edge source="AAPL" target="MRK" id="6" weight="0.42083101451983873">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="AAPL" target="MSFT" id="7" weight="0.5512744727087202">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="AAPL" target="PBR" id="8" weight="0.3476122354669489">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="AAPL" target="VLO" id="9" weight="0.6032739218129868">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="AAPL" target="MRK" id="9" weight="0.5437540357918015">
+      <edge source="AAPL" target="WFC" id="10" weight="0.4781980650966928">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="AAPL" target="MSFT" id="10" weight="0.4731787282242412">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="AAPL" target="PBR" id="11" weight="0.7171512911580536">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="AAPL" target="SHEL" id="12" weight="0.5886247230997427">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="AAPL" target="SLB" id="13" weight="0.3098394448201571">
+      <edge source="ABBV" target="AAPL" id="11" weight="0.6302556674602303">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="AAPL" target="TMO" id="14" weight="0.48428998476530377">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="AAPL" target="TTE" id="15" weight="0.4264024558288294">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AAPL" target="UNH" id="16" weight="0.5319834421123263">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="AAPL" target="VLO" id="17" weight="0.6896321969088095">
+      <edge source="ABBV" target="ADBE" id="12" weight="0.3466018301703622">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="AAPL" target="XOM" id="18" weight="0.6058320537057562">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="AAPL" id="19" weight="0.6300668096763773">
+      <edge source="ABBV" target="AXP" id="13" weight="0.4257892415166699">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="ABBV" target="ADBE" id="20" weight="0.36818371126753136">
+      <edge source="ABBV" target="BAC" id="14" weight="0.5250790867595211">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="ABBV" target="AXP" id="21" weight="0.312087817334445">
+      <edge source="ABBV" target="DHR" id="15" weight="0.3762171851943147">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="ABBV" target="BAC" id="22" weight="0.5229596476758139">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="BP" id="23" weight="0.5012724649789192">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="COP" id="24" weight="0.47260618843478575">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="CVX" id="25" weight="0.5003393257170657">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="DHR" id="26" weight="0.5710395721601171">
+      <edge source="ABBV" target="JNJ" id="16" weight="0.5550082265044539">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="ABBV" target="EQNR" id="27" weight="0.38490142691524115">
+      <edge source="ABBV" target="JPM" id="17" weight="0.3336498394319425">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="ABBV" target="GOOGL" id="28" weight="0.43807568537219976">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="JNJ" id="29" weight="0.7417258378912512">
+      <edge source="ABBV" target="MA" id="18" weight="0.34496040766518643">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="ABBV" target="JPM" id="30" weight="0.49108240890592325">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="LLY" id="31" weight="0.54262942180736">
+      <edge source="ABBV" target="MRK" id="19" weight="0.44401383599764666">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="ABBV" target="MA" id="32" weight="0.3106262922109222">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="MRK" id="33" weight="0.756708465297621">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="MSFT" id="34" weight="0.6672660090480839">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="PBR" id="35" weight="0.6050570378956961">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="PFE" id="36" weight="0.3086905262226188">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="SHEL" id="37" weight="0.34292087746748756">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="SLB" id="38" weight="0.49649155239511894">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="TMO" id="39" weight="0.4783667756348132">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="UNH" id="40" weight="0.4846614823131539">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="VLO" id="41" weight="0.590449846131518">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="WFC" id="42" weight="0.3773247016872248">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="ABBV" target="XOM" id="43" weight="0.4229287942008609">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ADBE" target="AMZN" id="44" weight="0.39233447265064403">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ADBE" target="BAC" id="45" weight="0.4081797244980672">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ADBE" target="C" id="46" weight="0.3829173841486631">
+      <edge source="ABBV" target="MSFT" id="20" weight="0.5675838158797785">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="ADBE" target="GS" id="47" weight="0.5019458051730556">
+      <edge source="ABBV" target="PBR" id="21" weight="0.4354166575798948">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="ADBE" target="META" id="48" weight="0.5363882585354401">
+      <edge source="ABBV" target="SLB" id="22" weight="0.38158495053064057">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ABBV" target="VLO" id="23" weight="0.5561670140451253">
+        <attvalues>
+          <attvalue for="0" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="ABBV" target="WFC" id="24" weight="0.5196755266889177">
+        <attvalues>
+          <attvalue for="0" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="ADBE" target="AZN" id="25" weight="0.3596369453196017">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="ADBE" target="BAC" id="26" weight="0.35449659013236556">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ADBE" target="BP" id="27" weight="0.3712404149822058">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ADBE" target="DHR" id="28" weight="0.33984136111918023">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ADBE" target="META" id="29" weight="0.4095497881211661">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="ADBE" target="MS" id="49" weight="0.3525499494017931">
+      <edge source="ADBE" target="MSFT" id="30" weight="0.32053506215138694">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="ADBE" target="SHEL" id="31" weight="0.32575678633318605">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="ADBE" target="MSFT" id="50" weight="0.45050621725564705">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="ADBE" target="PYPL" id="51" weight="0.3506627680083415">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="ADBE" target="TSLA" id="52" weight="0.30449626196027707">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="AMD" target="GS" id="53" weight="0.37025101767373525">
+      <edge source="ADBE" target="TSLA" id="32" weight="0.3393448222396238">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="AMD" target="INTC" id="54" weight="0.3781760481057062">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AMD" target="JPM" id="55" weight="0.4066069044966557">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AMD" target="MS" id="56" weight="0.33541574505476235">
+      <edge source="ADBE" target="TTE" id="33" weight="0.32312286555356506">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="AMZN" target="GS" id="57" weight="0.3924724067447157">
+      <edge source="AMD" target="AZN" id="34" weight="0.45959567707590415">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="AMZN" target="META" id="58" weight="0.5727588285099139">
+      <edge source="AMD" target="COP" id="35" weight="0.4411865201843603">
         <attvalues>
-          <attvalue for="0" value="1" />
+          <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="AMZN" target="MS" id="59" weight="0.4218451499064761">
+      <edge source="AMD" target="CVX" id="36" weight="0.4650595136350704">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="AMD" target="INTC" id="37" weight="0.31421797755562514">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="AMZN" target="PYPL" id="60" weight="0.6072261029164555">
+      <edge source="AMD" target="MRK" id="38" weight="0.3222827077901068">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="AMD" target="MS" id="39" weight="0.42904137468872533">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="AMD" target="PBR" id="40" weight="0.36796802968023795">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="AMD" target="SHEL" id="41" weight="0.3458121452511636">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="AMZN" target="AZN" id="42" weight="0.35193370395770374">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="AMZN" target="C" id="43" weight="0.3912663626233566">
+        <attvalues>
+          <attvalue for="0" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="AMZN" target="GS" id="44" weight="0.425525434897303">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="AMZN" target="TSLA" id="61" weight="0.4385358293745106">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AXP" target="AZN" id="62" weight="0.3193128304737897">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="AXP" target="BAC" id="63" weight="0.4371074210453737">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AXP" target="C" id="64" weight="0.54986516635775">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AXP" target="GS" id="65" weight="0.3338008464483859">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="AXP" target="JPM" id="66" weight="0.4513605587553919">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="AXP" target="MA" id="67" weight="0.4970661174412854">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AXP" target="MS" id="68" weight="0.3914960292707902">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AXP" target="PYPL" id="69" weight="0.32221997059604385">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="AXP" target="V" id="70" weight="0.3642927385178597">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AXP" target="WFC" id="71" weight="0.4227257095860287">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AZN" target="AMD" id="72" weight="0.4116579204859163">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="AZN" target="AMZN" id="73" weight="0.44131844326579917">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="AZN" target="C" id="74" weight="0.31674317757777204">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AZN" target="GS" id="75" weight="0.42000030546632255">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="AZN" target="MS" id="76" weight="0.3292226159564626">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="AMD" id="77" weight="0.3010617308188894">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="AMZN" id="78" weight="0.31441514306802687">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="AXP" id="79" weight="0.47148066633486446">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="AZN" id="80" weight="0.4399332785966608">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="C" id="81" weight="0.48279563571673595">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="GOOGL" id="82" weight="0.3858116097957045">
+      <edge source="AMZN" target="LLY" id="45" weight="0.35245341252258144">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="BAC" target="GS" id="83" weight="0.47164081043644773">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="JPM" id="84" weight="0.4837983739885365">
+      <edge source="AMZN" target="META" id="46" weight="0.3824078181682782">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="BAC" target="MA" id="85" weight="0.4907187813485543">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="META" id="86" weight="0.3392056531956346">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="MS" id="87" weight="0.5647282185592398">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="PBR" id="88" weight="0.3524963911850504">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="PYPL" id="89" weight="0.3240945653986264">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="TSLA" id="90" weight="0.31052227724461584">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="BAC" target="WFC" id="91" weight="0.5803259840692236">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="AAPL" id="92" weight="0.4105296005397049">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="COP" id="93" weight="0.683096037270579">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="CVX" id="94" weight="0.655440020292404">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="EQNR" id="95" weight="0.7039794057361165">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="GOOGL" id="96" weight="0.46043662062574575">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="PBR" id="97" weight="0.5814796421173091">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="SHEL" id="98" weight="0.5739316272555159">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="SLB" id="99" weight="0.5032115836549638">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="TTE" id="100" weight="0.580327973621566">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="VLO" id="101" weight="0.5797308202541446">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="BP" target="XOM" id="102" weight="0.6912601593549944">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="C" target="AMZN" id="103" weight="0.3419478678840288">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="C" target="AXP" id="104" weight="0.43530712351142714">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="C" target="AZN" id="105" weight="0.3894955129606335">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="C" target="GS" id="106" weight="0.5059550333426996">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="C" target="JPM" id="107" weight="0.3782694663066482">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="C" target="MS" id="108" weight="0.5807209685005278">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="C" target="PYPL" id="109" weight="0.4250336078455845">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="C" target="WFC" id="110" weight="0.3358377154509105">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="AAPL" id="111" weight="0.5686599736191184">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="ABBV" id="112" weight="0.5328367626231765">
+      <edge source="AMZN" target="MS" id="47" weight="0.5004434230264173">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="COP" target="BP" id="113" weight="0.652679465292726">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="CVX" id="114" weight="0.8568767692798959">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="DHR" id="115" weight="0.37969494531592324">
+      <edge source="AMZN" target="NVDA" id="48" weight="0.30040133058329127">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="COP" target="EQNR" id="116" weight="0.5994690870155712">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="GOOGL" id="117" weight="0.41562625808806064">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="JNJ" id="118" weight="0.3346148394723161">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="MRK" id="119" weight="0.39865444346111856">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="PBR" id="120" weight="0.6330099987074376">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="SHEL" id="121" weight="0.5594569002675052">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="SLB" id="122" weight="0.4523584562337523">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="TMO" id="123" weight="0.4959397441752648">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="TTE" id="124" weight="0.4693992264473464">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="UNH" id="125" weight="0.4030270105254903">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="VLO" id="126" weight="0.6905679908672954">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="WFC" id="127" weight="0.3515789153217066">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="COP" target="XOM" id="128" weight="0.8168055110407558">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="AAPL" id="129" weight="0.6109284668802512">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="ABBV" id="130" weight="0.6318972146334623">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="BP" id="131" weight="0.5753087090376772">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="COP" id="132" weight="0.7997996848890064">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="DHR" id="133" weight="0.5320308496892878">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="EQNR" id="134" weight="0.5287704133813551">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="GOOGL" id="135" weight="0.38630816534604145">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="JNJ" id="136" weight="0.42703669237217284">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="MRK" id="137" weight="0.5502326822596691">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="PBR" id="138" weight="0.5580154046477896">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="SHEL" id="139" weight="0.4969343057974362">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="SLB" id="140" weight="0.4414017759625749">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="TMO" id="141" weight="0.5972788781647879">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="TTE" id="142" weight="0.4695735446561137">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="UNH" id="143" weight="0.559845270048359">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="VLO" id="144" weight="0.8055643644437955">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="CVX" target="XOM" id="145" weight="0.8037782646282787">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="DHR" target="AAPL" id="146" weight="0.4688598211298086">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="DHR" target="ABBV" id="147" weight="0.3208132334185271">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="DHR" target="ADBE" id="148" weight="0.39967554097511376">
+      <edge source="AMZN" target="NVO" id="49" weight="0.5696452549897664">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="DHR" target="BAC" id="149" weight="0.5339255139308302">
+      <edge source="AMZN" target="PYPL" id="50" weight="0.5602729868507555">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="AMZN" target="SLB" id="51" weight="0.3500000717988576">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="AMZN" target="TTE" id="52" weight="0.444427691818186">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="DHR" target="BP" id="150" weight="0.48524786921979507">
+      <edge source="AXP" target="BAC" id="53" weight="0.35432442940706593">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="DHR" target="EQNR" id="151" weight="0.4880120185350768">
+      <edge source="AXP" target="JNJ" id="54" weight="0.312858211393128">
+        <attvalues>
+          <attvalue for="0" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="AXP" target="JPM" id="55" weight="0.32494951623545304">
+        <attvalues>
+          <attvalue for="0" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="AXP" target="MRK" id="56" weight="0.46147568837239766">
+        <attvalues>
+          <attvalue for="0" value="3" />
+        </attvalues>
+      </edge>
+      <edge source="AXP" target="PBR" id="57" weight="0.3171222835978423">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="DHR" target="GOOGL" id="152" weight="0.4987295774457002">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="DHR" target="JNJ" id="153" weight="0.3238586158321944">
+      <edge source="AZN" target="AMD" id="58" weight="0.35234019584143894">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="DHR" target="MA" id="154" weight="0.35765795058143646">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="DHR" target="MRK" id="155" weight="0.38787594710378215">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="DHR" target="MSFT" id="156" weight="0.5978201040403534">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="DHR" target="PBR" id="157" weight="0.572839427326727">
+      <edge source="AZN" target="AMZN" id="59" weight="0.6037241106080731">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="DHR" target="SHEL" id="158" weight="0.43825794719475486">
+      <edge source="AZN" target="BP" id="60" weight="0.3491168829619346">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="AZN" target="CVX" id="61" weight="0.4631618612176566">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="DHR" target="UNH" id="159" weight="0.3626214712567875">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="AAPL" id="160" weight="0.3757031403847733">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="BP" id="161" weight="0.7146705775061881">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="COP" id="162" weight="0.6713869989282921">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="CVX" id="163" weight="0.6553996507926719">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="GOOGL" id="164" weight="0.365276722230658">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="PBR" id="165" weight="0.581014379901312">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="SHEL" id="166" weight="0.5803404111544133">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="SLB" id="167" weight="0.44605927739215656">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="TTE" id="168" weight="0.49391515276110487">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="VLO" id="169" weight="0.5547085957188449">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="EQNR" target="XOM" id="170" weight="0.6291709121655483">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="GOOGL" target="DHR" id="171" weight="0.38080440186915987">
+      <edge source="AZN" target="GS" id="62" weight="0.6489265509945655">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="GOOGL" target="PBR" id="172" weight="0.4826270437958837">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="GOOGL" target="SHEL" id="173" weight="0.5400404356421677">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="GOOGL" target="TMO" id="174" weight="0.3370805796119252">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="GOOGL" target="TTE" id="175" weight="0.4740713038274753">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="GS" target="AMZN" id="176" weight="0.36146508451219117">
+      <edge source="AZN" target="LLY" id="63" weight="0.37788268873170555">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="GS" target="AZN" id="177" weight="0.6276188465851084">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="GS" target="MS" id="178" weight="0.4828632356455296">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="GS" target="NVDA" id="179" weight="0.3484206369197422">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="GS" target="NVO" id="180" weight="0.33843512324845765">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="GS" target="PYPL" id="181" weight="0.3864062622100721">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="INTC" target="AMD" id="182" weight="0.4131345521897944">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="INTC" target="JPM" id="183" weight="0.46265175268316777">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="INTC" target="NVO" id="184" weight="0.31205607614689185">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="JNJ" target="AAPL" id="185" weight="0.5293435330656547">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="JNJ" target="ABBV" id="186" weight="0.6347065011299068">
+      <edge source="AZN" target="META" id="64" weight="0.33537955308352324">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="JNJ" target="ADBE" id="187" weight="0.3331620339830756">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="JNJ" target="AXP" id="188" weight="0.4076222276353511">
+      <edge source="AZN" target="MS" id="65" weight="0.5276745174718697">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="JNJ" target="BP" id="189" weight="0.39292720221665384">
+      <edge source="AZN" target="NVO" id="66" weight="0.6509239661409617">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="JNJ" target="COP" id="190" weight="0.36778848569053896">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="JNJ" target="CVX" id="191" weight="0.35023635762438815">
+      <edge source="AZN" target="PFE" id="67" weight="0.4609872244678375">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="JNJ" target="DHR" id="192" weight="0.4698542533488612">
+      <edge source="AZN" target="PYPL" id="68" weight="0.4457802059291307">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="JNJ" target="INTC" id="193" weight="0.3517179694810409">
+      <edge source="AZN" target="SHEL" id="69" weight="0.5997379255028641">
         <attvalues>
-          <attvalue for="0" value="4" />
+          <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="JNJ" target="JPM" id="194" weight="0.5137079800568264">
+      <edge source="AZN" target="TTE" id="70" weight="0.42352105493541764">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="JNJ" target="LLY" id="195" weight="0.5403364252875136">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="JNJ" target="MA" id="196" weight="0.3034843247568125">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="JNJ" target="MRK" id="197" weight="0.709676849745763">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="JNJ" target="MSFT" id="198" weight="0.7065418554571876">
+      <edge source="AZN" target="XOM" id="71" weight="0.3849117533630238">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="JNJ" target="PBR" id="199" weight="0.49913941837515435">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="JNJ" target="SLB" id="200" weight="0.4755795436666639">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="JNJ" target="UNH" id="201" weight="0.33830081352645747">
+      <edge source="BAC" target="AMD" id="72" weight="0.30716195438063487">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="JNJ" target="VLO" id="202" weight="0.46150225462173416">
+      <edge source="BAC" target="AZN" id="73" weight="0.3134871492475484">
         <attvalues>
-          <attvalue for="0" value="1" />
+          <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="JPM" target="AMD" id="203" weight="0.5150215497760653">
+      <edge source="BAC" target="DHR" id="74" weight="0.32834517102916566">
         <attvalues>
-          <attvalue for="0" value="1" />
+          <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="JPM" target="BAC" id="204" weight="0.3272067017180103">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="JPM" target="GOOGL" id="205" weight="0.3702642330048211">
+      <edge source="BAC" target="GOOGL" id="75" weight="0.35329307835427964">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="JPM" target="INTC" id="206" weight="0.5113589270778061">
+      <edge source="BAC" target="JNJ" id="76" weight="0.31511618741507846">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="JPM" target="PBR" id="207" weight="0.359518747747051">
+      <edge source="BAC" target="JPM" id="77" weight="0.313418722243718">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="JPM" target="SHEL" id="208" weight="0.3920782903297221">
+      <edge source="BAC" target="MRK" id="78" weight="0.33845678962791426">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="BAC" target="MS" id="79" weight="0.46227620206258435">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BAC" target="PBR" id="80" weight="0.5997669019912807">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="AAPL" id="209" weight="0.3891310087190282">
+      <edge source="BAC" target="SHEL" id="81" weight="0.5336800513406327">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BAC" target="TTE" id="82" weight="0.3419609932580208">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BAC" target="WFC" id="83" weight="0.4470402909402319">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="AMZN" id="84" weight="0.5905136940317262">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="AZN" id="85" weight="0.6864130914860849">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="EQNR" id="86" weight="0.3604493060260075">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="GS" id="87" weight="0.466569219739958">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="LLY" id="88" weight="0.4021409888674265">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="META" id="89" weight="0.4529125405816493">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="MS" id="90" weight="0.3008074369580434">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="NVO" id="91" weight="0.3528773152441014">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="PFE" id="92" weight="0.6569017640746952">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="PYPL" id="93" weight="0.449862810748697">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="SHEL" id="94" weight="0.4552298281680266">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="TSLA" id="95" weight="0.46234333751857776">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="BP" target="TTE" id="96" weight="0.43000348973153524">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="C" target="INTC" id="97" weight="0.3055210225745386">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="COP" target="AAPL" id="98" weight="0.38259242801281207">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="COP" target="ABBV" id="99" weight="0.4492388171273764">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="COP" target="AMD" id="100" weight="0.3452889891854174">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="ABBV" id="210" weight="0.613763984570256">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="LLY" target="ADBE" id="211" weight="0.3967917009027745">
+      <edge source="COP" target="GOOGL" id="101" weight="0.35917206236987637">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="BP" id="212" weight="0.4603604490275218">
+      <edge source="COP" target="JPM" id="102" weight="0.5018494554784758">
         <attvalues>
-          <attvalue for="0" value="3" />
+          <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="COP" id="213" weight="0.43152091139167165">
+      <edge source="COP" target="MRK" id="103" weight="0.4494954097261468">
         <attvalues>
-          <attvalue for="0" value="3" />
+          <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="CVX" id="214" weight="0.39729531934023427">
+      <edge source="COP" target="TMO" id="104" weight="0.4319722106331333">
         <attvalues>
-          <attvalue for="0" value="4" />
+          <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="EQNR" id="215" weight="0.4399472097717544">
+      <edge source="COP" target="VLO" id="105" weight="0.601853034430219">
         <attvalues>
-          <attvalue for="0" value="3" />
+          <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="INTC" id="216" weight="0.4352385702750688">
+      <edge source="COP" target="WFC" id="106" weight="0.5694092717075648">
         <attvalues>
-          <attvalue for="0" value="4" />
+          <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="JNJ" id="217" weight="0.524772521623443">
+      <edge source="COP" target="XOM" id="107" weight="0.5017499922125621">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="JPM" id="218" weight="0.3570107302544251">
+      <edge source="CVX" target="ABBV" id="108" weight="0.37417227587789115">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="CVX" target="GOOGL" id="109" weight="0.33943614818369294">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="MRK" id="219" weight="0.5850062687446467">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="LLY" target="MSFT" id="220" weight="0.4925897266902624">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="LLY" target="NVDA" id="221" weight="0.35009951621617336">
+      <edge source="CVX" target="NVO" id="110" weight="0.43651986504709034">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="PBR" id="222" weight="0.3971379879029389">
+      <edge source="CVX" target="XOM" id="111" weight="0.3069351829697479">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="AZN" id="112" weight="0.3728537802072447">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="BAC" id="113" weight="0.5353822344024888">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="BP" id="114" weight="0.4813974954042627">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="EQNR" id="115" weight="0.47225644778092984">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="META" id="116" weight="0.3436518162223858">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="MSFT" id="117" weight="0.4257922203130567">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="PBR" id="118" weight="0.4710888629735395">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="PFE" id="119" weight="0.42586101842773544">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="SHEL" id="120" weight="0.377701188908513">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="TSLA" id="121" weight="0.4616750119864479">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="TTE" id="122" weight="0.3412539147217587">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="DHR" target="UNH" id="123" weight="0.4452297319055174">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="EQNR" target="AMZN" id="124" weight="0.39311221197344326">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="EQNR" target="AZN" id="125" weight="0.5322237492546078">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="SHEL" id="223" weight="0.31294274248205317">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="LLY" target="SLB" id="224" weight="0.6073643925778176">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="LLY" target="TMO" id="225" weight="0.3051423241925879">
+      <edge source="EQNR" target="BAC" id="126" weight="0.33453342075747255">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="UNH" id="226" weight="0.40512813578741924">
+      <edge source="EQNR" target="CVX" id="127" weight="0.5012720004448696">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="EQNR" target="GS" id="128" weight="0.3195821410772608">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="EQNR" target="JPM" id="129" weight="0.3637524223391281">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="VLO" id="227" weight="0.44182395460923685">
+      <edge source="EQNR" target="PFE" id="130" weight="0.37512284998340006">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="EQNR" target="SHEL" id="131" weight="0.39914109666469644">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="GOOGL" target="ABBV" id="132" weight="0.33550564766389596">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="GOOGL" target="ADBE" id="133" weight="0.451997242582667">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="GOOGL" target="BAC" id="134" weight="0.46204614329620414">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="GOOGL" target="DHR" id="135" weight="0.5632126561929113">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="GOOGL" target="MA" id="136" weight="0.3195168485085724">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="GOOGL" target="MSFT" id="137" weight="0.31014569185724006">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="GOOGL" target="PBR" id="138" weight="0.4409748986744072">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="GOOGL" target="TMO" id="139" weight="0.4933680059146041">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="GOOGL" target="WFC" id="140" weight="0.47222880223345237">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="GS" target="AZN" id="141" weight="0.36141992288735464">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="GS" target="COP" id="142" weight="0.4149976465922904">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="GS" target="LLY" id="143" weight="0.32443457626832">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="GS" target="MS" id="144" weight="0.34656297863183616">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="GS" target="NVDA" id="145" weight="0.435254019514625">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="LLY" target="XOM" id="228" weight="0.3383139800282797">
+      <edge source="GS" target="NVO" id="146" weight="0.4631068844496105">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="GS" target="PYPL" id="147" weight="0.3707266570435877">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="GS" target="TTE" id="148" weight="0.5294551060647756">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="GS" target="V" id="149" weight="0.30222657395629554">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="GS" target="XOM" id="150" weight="0.503501335529729">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="INTC" target="AAPL" id="151" weight="0.3028899586072454">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="INTC" target="AMD" id="152" weight="0.3589182596961202">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="INTC" target="COP" id="153" weight="0.5091563756226339">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="INTC" target="CVX" id="154" weight="0.395228355229409">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="INTC" target="JNJ" id="155" weight="0.42847385298846474">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="INTC" target="JPM" id="156" weight="0.4840655448960929">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="INTC" target="MRK" id="157" weight="0.30663961981351445">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="JNJ" target="ABBV" id="158" weight="0.3268557113443329">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="JNJ" target="AXP" id="159" weight="0.43191613810216517">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="JNJ" target="INTC" id="160" weight="0.47456156478173944">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="JNJ" target="JPM" id="161" weight="0.4041861513152159">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="JNJ" target="MRK" id="162" weight="0.4182320787446902">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="JNJ" target="MSFT" id="163" weight="0.47010630213456284">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="JNJ" target="SLB" id="164" weight="0.4339638856205765">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="JNJ" target="VLO" id="165" weight="0.33060409124954276">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="AAPL" id="166" weight="0.397650008060038">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="ABBV" id="167" weight="0.3862898096106192">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="AMD" id="168" weight="0.38636434826228216">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="BAC" id="169" weight="0.31370445176437356">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="COP" id="170" weight="0.5309036903101283">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="CVX" id="171" weight="0.3940117346699639">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="GOOGL" id="172" weight="0.3109417214722692">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="INTC" id="173" weight="0.38161465470148276">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="JNJ" id="174" weight="0.5007111172231468">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="MA" id="175" weight="0.38125047444571164">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="MRK" id="176" weight="0.3803181816213661">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="MSFT" id="177" weight="0.31767498059631394">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="TMO" id="178" weight="0.3829021882406646">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="VLO" id="179" weight="0.5414073594205664">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="WFC" id="180" weight="0.3171108920002909">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="JPM" target="XOM" id="181" weight="0.3366885213408584">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="LLY" target="AMD" id="182" weight="0.42481923379150294">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="LLY" target="C" id="183" weight="0.32263752535325074">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="LLY" target="CVX" id="184" weight="0.3906898309225663">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="LLY" target="INTC" id="185" weight="0.5250817986402825">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="LLY" target="JNJ" id="186" weight="0.3020937779140164">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="MA" target="ADBE" id="229" weight="0.3150101501294575">
+      <edge source="LLY" target="SLB" id="187" weight="0.4072719427923501">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="MA" target="AXP" id="230" weight="0.46369814837101697">
+      <edge source="MA" target="ADBE" id="188" weight="0.35138159691077714">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="MA" target="BAC" id="189" weight="0.31367547812929186">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MA" target="BAC" id="231" weight="0.48757865475051726">
+      <edge source="MA" target="MSFT" id="190" weight="0.5203005691917527">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MA" target="C" id="232" weight="0.48816634698332895">
+      <edge source="MA" target="PBR" id="191" weight="0.3578612153359724">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MA" target="DHR" id="233" weight="0.30038318883385196">
+      <edge source="META" target="BP" id="192" weight="0.3528154542442791">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MA" target="GOOGL" id="234" weight="0.3247262724118323">
+      <edge source="META" target="GS" id="193" weight="0.4680232085672915">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="LLY" id="194" weight="0.3551073522592384">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="MS" id="195" weight="0.5086119118327578">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="NVDA" id="196" weight="0.33237838806241243">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="NVO" id="197" weight="0.4196548559845665">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="PFE" id="198" weight="0.5850637122524253">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="PYPL" id="199" weight="0.49386713611021205">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="SHEL" id="200" weight="0.42471873575252594">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="TMO" id="201" weight="0.3320493424074587">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="TSLA" id="202" weight="0.725512773449353">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="TTE" id="203" weight="0.7187571002355384">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="META" target="V" id="204" weight="0.4066003133129657">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="MRK" target="ABBV" id="205" weight="0.4171514412551333">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="MRK" target="ADBE" id="206" weight="0.41904358157915117">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="MRK" target="AMD" id="207" weight="0.32408191636393374">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="MA" target="GS" id="235" weight="0.3287284435066614">
+      <edge source="MRK" target="AXP" id="208" weight="0.3214440214397166">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="MRK" target="COP" id="209" weight="0.3086638346460227">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MA" target="META" id="236" weight="0.36054083795776565">
+      <edge source="MRK" target="DHR" id="210" weight="0.39139649657760744">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="MRK" target="MA" id="211" weight="0.3154225062894193">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="MRK" target="MSFT" id="212" weight="0.41776707874781277">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="MRK" target="PBR" id="213" weight="0.4866434921025065">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="MA" target="MS" id="237" weight="0.521392962549496">
+      <edge source="MS" target="AZN" id="214" weight="0.4848810555996294">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MA" target="MSFT" id="238" weight="0.36354663680542776">
+      <edge source="MS" target="BP" id="215" weight="0.34835726648107945">
         <attvalues>
-          <attvalue for="0" value="1" />
+          <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="MA" target="V" id="239" weight="0.3725541035168348">
+      <edge source="MS" target="EQNR" id="216" weight="0.4371255909730503">
         <attvalues>
-          <attvalue for="0" value="1" />
+          <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="MA" target="WFC" id="240" weight="0.44201896604050844">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="META" target="AMZN" id="241" weight="0.3878857513522935">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="META" target="GS" id="242" weight="0.43527723002804214">
+      <edge source="MS" target="GS" id="217" weight="0.45736431360510527">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="META" target="MS" id="243" weight="0.427833033683615">
+      <edge source="MS" target="META" id="218" weight="0.3853750111020788">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="MS" target="NVO" id="219" weight="0.3710524976119356">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="MS" target="PFE" id="220" weight="0.3285319727733284">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="META" target="PYPL" id="244" weight="0.6078501106537805">
+      <edge source="MS" target="PYPL" id="221" weight="0.30101475544836936">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="META" target="TSLA" id="245" weight="0.7082461080257875">
+      <edge source="MS" target="SHEL" id="222" weight="0.6302187578984493">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MRK" target="AAPL" id="246" weight="0.5037458619859083">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="ABBV" id="247" weight="0.7679049086583556">
+      <edge source="MS" target="TSLA" id="223" weight="0.4431028124393539">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MRK" target="ADBE" id="248" weight="0.5336058666311719">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="BAC" id="249" weight="0.40195768472635035">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="BP" id="250" weight="0.46046681486445157">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="COP" id="251" weight="0.387594531369936">
+      <edge source="MS" target="TTE" id="224" weight="0.7155112050000787">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MRK" target="CVX" id="252" weight="0.3330293372017274">
+      <edge source="MSFT" target="AAPL" id="225" weight="0.41700307919894297">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MRK" target="DHR" id="253" weight="0.5337297030582263">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="EQNR" id="254" weight="0.43498143808209866">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="GOOGL" id="255" weight="0.31286201911369615">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="JNJ" id="256" weight="0.6634998179496058">
+      <edge source="MSFT" target="ADBE" id="226" weight="0.3299433263082207">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MRK" target="JPM" id="257" weight="0.4515200107670041">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="LLY" id="258" weight="0.5999365029514124">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="MSFT" id="259" weight="0.6587839322845214">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="PBR" id="260" weight="0.5939091633096507">
+      <edge source="MSFT" target="BAC" id="227" weight="0.6209378068300044">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="MRK" target="SHEL" id="261" weight="0.390800920287942">
+      <edge source="MSFT" target="DHR" id="228" weight="0.5545172448070397">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="MSFT" target="EQNR" id="229" weight="0.4216728880013959">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="MRK" target="TMO" id="262" weight="0.4480818181784326">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="UNH" id="263" weight="0.5043602472581639">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="VLO" id="264" weight="0.38316233746203143">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="MRK" target="WFC" id="265" weight="0.3047037565488634">
+      <edge source="MSFT" target="GOOGL" id="230" weight="0.4984995819787957">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="MS" target="AMZN" id="266" weight="0.3774015096419054">
+      <edge source="MSFT" target="MA" id="231" weight="0.4169252513098277">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="MSFT" target="PBR" id="232" weight="0.5305022583791634">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="NVDA" target="AAPL" id="233" weight="0.366948340386576">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="NVDA" target="ABBV" id="234" weight="0.35508245196722493">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="MS" target="AXP" id="267" weight="0.31263968234860595">
+      <edge source="NVDA" target="JNJ" id="235" weight="0.4835432059570533">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="NVDA" target="JPM" id="236" weight="0.36227355131472394">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="NVDA" target="SLB" id="237" weight="0.56394129950341">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="NVDA" target="V" id="238" weight="0.4751173161940426">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="NVDA" target="VLO" id="239" weight="0.3732817136406323">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="NVO" target="GS" id="240" weight="0.5230365406058142">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MS" target="AZN" id="268" weight="0.5402851962266356">
+      <edge source="NVO" target="JPM" id="241" weight="0.4117906892777316">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="NVO" target="LLY" id="242" weight="0.37621336326001115">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="NVO" target="NVDA" id="243" weight="0.5880131058434027">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="MS" target="C" id="269" weight="0.5406263203954745">
+      <edge source="NVO" target="PYPL" id="244" weight="0.3992539969097906">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MS" target="GS" id="270" weight="0.5773162703525387">
+      <edge source="NVO" target="SLB" id="245" weight="0.3567438192502871">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="NVO" target="TTE" id="246" weight="0.3227838544993511">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MS" target="PYPL" id="271" weight="0.44698272225132163">
+      <edge source="NVO" target="XOM" id="247" weight="0.4114168921134074">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="PBR" target="AZN" id="248" weight="0.33115024329621756">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="PBR" target="BP" id="249" weight="0.3974625773981218">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="PBR" target="DHR" id="250" weight="0.5770235595691281">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="PBR" target="EQNR" id="251" weight="0.4524228140017435">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="PBR" target="GOOGL" id="252" weight="0.38450228114789975">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MS" target="TSLA" id="272" weight="0.3270910888914716">
+      <edge source="PBR" target="META" id="253" weight="0.305664891349382">
         <attvalues>
-          <attvalue for="0" value="1" />
+          <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="MS" target="V" id="273" weight="0.33895531982175503">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="MSFT" target="AAPL" id="274" weight="0.3618585664267352">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="MSFT" target="ADBE" id="275" weight="0.446575196247365">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="MSFT" target="BAC" id="276" weight="0.48718641988152045">
+      <edge source="PBR" target="SHEL" id="254" weight="0.42640031103422954">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="MSFT" target="BP" id="277" weight="0.3744633794653389">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="MSFT" target="DHR" id="278" weight="0.46375661958119163">
+      <edge source="PFE" target="AMZN" id="255" weight="0.3853443211647082">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MSFT" target="EQNR" id="279" weight="0.3663132381934033">
+      <edge source="PFE" target="AZN" id="256" weight="0.5011654151123595">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="PFE" target="BP" id="257" weight="0.49539145227043685">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="PFE" target="GS" id="258" weight="0.4192277889143342">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="PFE" target="LLY" id="259" weight="0.38866443949604373">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="PFE" target="META" id="260" weight="0.6144257711221238">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="PFE" target="MS" id="261" weight="0.32759417493075976">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="PFE" target="NVO" id="262" weight="0.4203632514179895">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="PFE" target="PYPL" id="263" weight="0.5570256856514071">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="PFE" target="SHEL" id="264" weight="0.3898931143214403">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="PFE" target="TSLA" id="265" weight="0.5889201499509122">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="PFE" target="TTE" id="266" weight="0.4906596674004574">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="PYPL" target="GS" id="267" weight="0.3152918005846996">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="PYPL" target="INTC" id="268" weight="0.328607163319492">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="PYPL" target="LLY" id="269" weight="0.34824185107959826">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="PYPL" target="META" id="270" weight="0.38661752408702305">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="PYPL" target="NVDA" id="271" weight="0.5257580587516022">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="MSFT" target="GOOGL" id="280" weight="0.3799119415248502">
+      <edge source="PYPL" target="NVO" id="272" weight="0.5650282092591005">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="PYPL" target="PFE" id="273" weight="0.4753146628020078">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="PYPL" target="SLB" id="274" weight="0.33261861108605645">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="PYPL" target="TSLA" id="275" weight="0.3544238309233547">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="PYPL" target="TTE" id="276" weight="0.3713225974394378">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="SHEL" target="AMD" id="277" weight="0.377831401818485">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="SHEL" target="AMZN" id="278" weight="0.3341257802212111">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="SHEL" target="AZN" id="279" weight="0.7524027951820933">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="MSFT" target="JPM" id="281" weight="0.3364036223484689">
+      <edge source="SHEL" target="BP" id="280" weight="0.5162902285759848">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="MSFT" target="MA" id="282" weight="0.31514241847760033">
+      <edge source="SHEL" target="CVX" id="281" weight="0.3236606390219525">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="MSFT" target="PBR" id="283" weight="0.47561946190166265">
+      <edge source="SHEL" target="EQNR" id="282" weight="0.43249498683693727">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="SHEL" target="GS" id="283" weight="0.5745752030511874">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="SHEL" target="LLY" id="284" weight="0.3334649320437868">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="SHEL" target="MS" id="285" weight="0.6081946935053816">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="SHEL" target="NVO" id="286" weight="0.4750156379701045">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="SHEL" target="PFE" id="287" weight="0.36012854277841894">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="SHEL" target="TTE" id="288" weight="0.569705676552526">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="SLB" target="ABBV" id="289" weight="0.3042820894484073">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="SLB" target="AXP" id="290" weight="0.32677617102384965">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="SLB" target="INTC" id="291" weight="0.49498260985531467">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="SLB" target="JNJ" id="292" weight="0.6423135697124431">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="MSFT" target="SHEL" id="284" weight="0.37474727697587146">
+      <edge source="SLB" target="NVDA" id="293" weight="0.34676256407484696">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="MSFT" target="TTE" id="285" weight="0.3073933113218003">
+      <edge source="TMO" target="DHR" id="294" weight="0.4135088403887037">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="NVDA" target="BP" id="286" weight="0.3105216229413838">
+      <edge source="TMO" target="GOOGL" id="295" weight="0.48620806257768556">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TMO" target="META" id="296" weight="0.3711278678086117">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TMO" target="TSLA" id="297" weight="0.47215186224431727">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="NVDA" target="COP" id="287" weight="0.31296169498462345">
+      <edge source="TMO" target="TTE" id="298" weight="0.3369263433726725">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="NVDA" target="CVX" id="288" weight="0.34396494621972074">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="NVDA" target="EQNR" id="289" weight="0.3041474772058443">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="NVDA" target="SLB" id="290" weight="0.566687041415954">
+      <edge source="TMO" target="UNH" id="299" weight="0.34334667280369885">
         <attvalues>
           <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="NVDA" target="VLO" id="291" weight="0.3385128742938387">
+      <edge source="TMO" target="V" id="300" weight="0.3651854401973981">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="TMO" target="VLO" id="301" weight="0.30007205662214553">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="TMO" target="XOM" id="302" weight="0.388676453260615">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TSLA" target="LLY" id="303" weight="0.3366913740102928">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="NVDA" target="XOM" id="292" weight="0.34018394148183817">
+      <edge source="TSLA" target="META" id="304" weight="0.6291646858379085">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TSLA" target="MS" id="305" weight="0.38627264913898446">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TSLA" target="PFE" id="306" weight="0.6347790051151204">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="NVO" target="AAPL" id="293" weight="0.4011108197833723">
+      <edge source="TSLA" target="PYPL" id="307" weight="0.5000540569997267">
         <attvalues>
-          <attvalue for="0" value="5" />
+          <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="NVO" target="ABBV" id="294" weight="0.3278266689127705">
+      <edge source="TSLA" target="SHEL" id="308" weight="0.3406751230873558">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="NVO" target="BP" id="295" weight="0.6823661605368028">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="NVO" target="COP" id="296" weight="0.6036655099029501">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="NVO" target="CVX" id="297" weight="0.5302182566349775">
+      <edge source="TSLA" target="SLB" id="309" weight="0.31596915614755633">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="NVO" target="EQNR" id="298" weight="0.6657935361886802">
+      <edge source="TSLA" target="TTE" id="310" weight="0.5405663702156716">
         <attvalues>
-          <attvalue for="0" value="4" />
+          <attvalue for="0" value="2" />
         </attvalues>
       </edge>
-      <edge source="NVO" target="JNJ" id="299" weight="0.31723471119757635">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="NVO" target="LLY" id="300" weight="0.5039195372044442">
+      <edge source="TTE" target="AZN" id="311" weight="0.38624383257518796">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="NVO" target="NVDA" id="301" weight="0.4849629613439439">
+      <edge source="TTE" target="BP" id="312" weight="0.46398539867034244">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="TTE" target="EQNR" id="313" weight="0.3634487186456746">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="NVO" target="PBR" id="302" weight="0.3404357788871379">
+      <edge source="TTE" target="GS" id="314" weight="0.37117856748133216">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TTE" target="META" id="315" weight="0.40157834662725106">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="TTE" target="MS" id="316" weight="0.4148450254469631">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TTE" target="NVO" id="317" weight="0.3963874671268639">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TTE" target="PFE" id="318" weight="0.594176673779611">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="TTE" target="PYPL" id="319" weight="0.43998235193514174">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="TTE" target="SHEL" id="320" weight="0.5387111336166438">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TTE" target="TSLA" id="321" weight="0.5337282155779125">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="TTE" target="UNH" id="322" weight="0.31528346046518435">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="TTE" target="V" id="323" weight="0.4294834712873657">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="UNH" target="BAC" id="324" weight="0.3358300086106992">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="NVO" target="PFE" id="303" weight="0.3357858630783169">
+      <edge source="UNH" target="TMO" id="325" weight="0.30805966811401064">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="NVO" target="SHEL" id="304" weight="0.30848972730139657">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="NVO" target="SLB" id="305" weight="0.6392167608947765">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="NVO" target="TTE" id="306" weight="0.4330756063848093">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="NVO" target="UNH" id="307" weight="0.3590113447036071">
+      <edge source="UNH" target="TSLA" id="326" weight="0.33513627167233506">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="NVO" target="VLO" id="308" weight="0.5439678077997051">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="NVO" target="XOM" id="309" weight="0.6066738714961037">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="AAPL" id="310" weight="0.47286527925861355">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="ABBV" id="311" weight="0.3656167454203837">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="BP" id="312" weight="0.5256079988900922">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="COP" id="313" weight="0.5195088062998316">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="CVX" id="314" weight="0.5192840421225648">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="DHR" id="315" weight="0.5227618054125054">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="EQNR" id="316" weight="0.548475638521003">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="GOOGL" id="317" weight="0.661128378349624">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="MRK" id="318" weight="0.31253119601816676">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="MSFT" id="319" weight="0.3517557030558295">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="SHEL" id="320" weight="0.5850270833221852">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="TMO" id="321" weight="0.3565786257759255">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="TTE" id="322" weight="0.45479937814212285">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="VLO" id="323" weight="0.49895032064675127">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="WFC" id="324" weight="0.3174627777304087">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="PBR" target="XOM" id="325" weight="0.4995426384640806">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PFE" target="ADBE" id="326" weight="0.4357852671118363">
+      <edge source="UNH" target="V" id="327" weight="0.3850611929779196">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="PFE" target="BP" id="327" weight="0.3614850674995601">
+      <edge source="UNH" target="WFC" id="328" weight="0.49664182671956913">
         <attvalues>
-          <attvalue for="0" value="4" />
+          <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="PFE" target="DHR" id="328" weight="0.3379239740162989">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="PFE" target="EQNR" id="329" weight="0.3341046548357015">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="PFE" target="LLY" id="330" weight="0.4133316412598425">
+      <edge source="UNH" target="XOM" id="329" weight="0.35940349591833765">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="PFE" target="MSFT" id="331" weight="0.32801284882205034">
+      <edge source="V" target="ADBE" id="330" weight="0.4225772742448791">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="V" target="BAC" id="331" weight="0.3546106229080008">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="PFE" target="NVDA" id="332" weight="0.5071593130724178">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="PFE" target="SLB" id="333" weight="0.49603096433092775">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="PFE" target="UNH" id="334" weight="0.38658674255297903">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PFE" target="V" id="335" weight="0.3894991046964731">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="PYPL" target="GS" id="336" weight="0.41499515027716516">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PYPL" target="INTC" id="337" weight="0.30344347825134266">
+      <edge source="V" target="META" id="332" weight="0.4235608106364262">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="PYPL" target="META" id="338" weight="0.4411477074109635">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PYPL" target="MS" id="339" weight="0.4275818774388978">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PYPL" target="NVDA" id="340" weight="0.4105293706121618">
+      <edge source="V" target="SLB" id="333" weight="0.3435695429308445">
         <attvalues>
           <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="PYPL" target="NVO" id="341" weight="0.3304106811569548">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="PYPL" target="TSLA" id="342" weight="0.41407132596587004">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="SHEL" target="BP" id="343" weight="0.3433109866282259">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="SHEL" target="COP" id="344" weight="0.4367294549288473">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="SHEL" target="CVX" id="345" weight="0.4236571402588553">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="SHEL" target="DHR" id="346" weight="0.30863808260736975">
+      <edge source="V" target="TSLA" id="334" weight="0.35412315878450873">
         <attvalues>
           <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="SHEL" target="EQNR" id="347" weight="0.479769297440175">
+      <edge source="VLO" target="AAPL" id="335" weight="0.5840367482965214">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="SHEL" target="GOOGL" id="348" weight="0.4848962323336046">
+      <edge source="VLO" target="ABBV" id="336" weight="0.5485714375701483">
         <attvalues>
-          <attvalue for="0" value="1" />
+          <attvalue for="0" value="4" />
         </attvalues>
       </edge>
-      <edge source="SHEL" target="PBR" id="349" weight="0.4187162170794058">
+      <edge source="VLO" target="BAC" id="337" weight="0.3336703915415418">
         <attvalues>
-          <attvalue for="0" value="1" />
+          <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="SHEL" target="TTE" id="350" weight="0.41268661050677485">
+      <edge source="VLO" target="DHR" id="338" weight="0.369327621747248">
         <attvalues>
-          <attvalue for="0" value="1" />
+          <attvalue for="0" value="5" />
         </attvalues>
       </edge>
-      <edge source="SHEL" target="XOM" id="351" weight="0.42003938049514794">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="SLB" target="AAPL" id="352" weight="0.45720556182681893">
+      <edge source="VLO" target="GOOGL" id="339" weight="0.5086334458304829">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="SLB" target="ABBV" id="353" weight="0.424574763399378">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="SLB" target="BP" id="354" weight="0.43576802014559557">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="SLB" target="COP" id="355" weight="0.48388144043230713">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="SLB" target="CVX" id="356" weight="0.4963225070500917">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="SLB" target="EQNR" id="357" weight="0.41025314362371734">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="SLB" target="JNJ" id="358" weight="0.6060813531710807">
+      <edge source="VLO" target="MA" id="340" weight="0.46579429437564185">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="SLB" target="VLO" id="359" weight="0.5037903520370655">
+      <edge source="VLO" target="MSFT" id="341" weight="0.6504265678824891">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="VLO" target="TMO" id="342" weight="0.33170061822825553">
+        <attvalues>
+          <attvalue for="0" value="2" />
+        </attvalues>
+      </edge>
+      <edge source="WFC" target="ABBV" id="343" weight="0.3382626443071432">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="SLB" target="XOM" id="360" weight="0.43174668490358054">
+      <edge source="WFC" target="AXP" id="344" weight="0.3205778601017896">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="WFC" target="BAC" id="345" weight="0.39930213051220165">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="TMO" target="AAPL" id="361" weight="0.4616504797194679">
+      <edge source="WFC" target="DHR" id="346" weight="0.3580600384293229">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="WFC" target="JNJ" id="347" weight="0.3423505525536153">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="WFC" target="MRK" id="348" weight="0.36680356254900826">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="WFC" target="MS" id="349" weight="0.3055604444991787">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="WFC" target="MSFT" id="350" weight="0.34801292943796464">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="WFC" target="PBR" id="351" weight="0.5024297116082088">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="WFC" target="SHEL" id="352" weight="0.43005524900892117">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="WFC" target="VLO" id="353" weight="0.36683676514457864">
+        <attvalues>
+          <attvalue for="0" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="XOM" target="AAPL" id="354" weight="0.3284793353784615">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="XOM" target="ABBV" id="355" weight="0.5548462827838186">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="XOM" target="GOOGL" id="356" weight="0.37187595352642144">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="XOM" target="SLB" id="357" weight="0.3036421791709815">
+        <attvalues>
+          <attvalue for="0" value="5" />
+        </attvalues>
+      </edge>
+      <edge source="XOM" target="TMO" id="358" weight="0.5008655388822727">
         <attvalues>
           <attvalue for="0" value="3" />
         </attvalues>
       </edge>
-      <edge source="TMO" target="ABBV" id="362" weight="0.643028756663027">
+      <edge source="XOM" target="UNH" id="359" weight="0.34946602548952355">
         <attvalues>
           <attvalue for="0" value="1" />
         </attvalues>
       </edge>
-      <edge source="TMO" target="BAC" id="363" weight="0.31495295026602116">
+      <edge source="XOM" target="VLO" id="360" weight="0.6187872872517809">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </edge>
+      <edge source="XOM" target="WFC" id="361" weight="0.44667948871391233">
         <attvalues>
           <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="BP" id="364" weight="0.4618123403159945">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="COP" id="365" weight="0.3180129333044997">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="CVX" id="366" weight="0.3723773400156176">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="DHR" id="367" weight="0.5812535333685735">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="EQNR" id="368" weight="0.4565786570940796">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="GOOGL" id="369" weight="0.43595122983711604">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="LLY" id="370" weight="0.3977428604298078">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="MRK" id="371" weight="0.548703492193">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="MSFT" id="372" weight="0.4356810913496397">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="PBR" id="373" weight="0.4666198303771909">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="PFE" id="374" weight="0.359975482366568">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="SHEL" id="375" weight="0.41151317405538385">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="SLB" id="376" weight="0.36581174273981587">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="TTE" id="377" weight="0.4941378748494531">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="UNH" id="378" weight="0.6614084104200753">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="VLO" id="379" weight="0.5136644300692353">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="TMO" target="XOM" id="380" weight="0.43537395385265104">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TSLA" target="META" id="381" weight="0.6739381553157061">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TSLA" target="PYPL" id="382" weight="0.5196577891794086">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="AAPL" id="383" weight="0.3793997418946501">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="BP" id="384" weight="0.42568671041612466">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="COP" id="385" weight="0.4036425700223756">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="CVX" id="386" weight="0.4375420840285623">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="DHR" id="387" weight="0.32360315508790854">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="EQNR" id="388" weight="0.4733833109809135">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="GOOGL" id="389" weight="0.34130732943211034">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="PBR" id="390" weight="0.3068335752455562">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="SHEL" id="391" weight="0.44791704317671244">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="SLB" id="392" weight="0.3800582099946995">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="TMO" id="393" weight="0.3330351586687763">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="UNH" id="394" weight="0.40434432942010173">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="VLO" id="395" weight="0.44647510678446717">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="TTE" target="XOM" id="396" weight="0.5677225603739992">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="AAPL" id="397" weight="0.43020102609315847">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="ABBV" id="398" weight="0.6368303955460748">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="BAC" id="399" weight="0.41578316314750874">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="BP" id="400" weight="0.5099582721554965">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="COP" id="401" weight="0.4925698059167534">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="CVX" id="402" weight="0.46435272068139705">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="DHR" id="403" weight="0.46608968004210205">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="EQNR" id="404" weight="0.43309355915938186">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="JNJ" id="405" weight="0.3903434433040192">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="LLY" id="406" weight="0.5098547628528676">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="MRK" id="407" weight="0.5015868030872304">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="MSFT" id="408" weight="0.39697654802901">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="PBR" id="409" weight="0.4960805797971487">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="PFE" id="410" weight="0.4520841882947265">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="SHEL" id="411" weight="0.35910936871363724">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="SLB" id="412" weight="0.4564618364177692">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="TMO" id="413" weight="0.550151020282596">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="TTE" id="414" weight="0.4655175806725695">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="VLO" id="415" weight="0.417753880518665">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="WFC" id="416" weight="0.3787779194878529">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="UNH" target="XOM" id="417" weight="0.490188660188074">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="V" target="ADBE" id="418" weight="0.37124529102432324">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="V" target="AMZN" id="419" weight="0.3580354488825023">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="V" target="AXP" id="420" weight="0.42688354571233594">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="V" target="BAC" id="421" weight="0.40037720831909046">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="V" target="MA" id="422" weight="0.41436643822012625">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="V" target="META" id="423" weight="0.45541661574274056">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="V" target="MSFT" id="424" weight="0.3052456199822563">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="V" target="PYPL" id="425" weight="0.3716849464284019">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="V" target="TSLA" id="426" weight="0.3956447934668978">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="AAPL" id="427" weight="0.6799926935728191">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="ABBV" id="428" weight="0.672538292975014">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="BP" id="429" weight="0.5257690352222903">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="COP" id="430" weight="0.6507476214866841">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="CVX" id="431" weight="0.776878375068006">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="DHR" id="432" weight="0.7109122440413141">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="EQNR" id="433" weight="0.40780783322542485">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="GOOGL" id="434" weight="0.38462652990996593">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="JNJ" id="435" weight="0.497099110700863">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="LLY" id="436" weight="0.3354306360286022">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="MRK" id="437" weight="0.5656224626989933">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="MSFT" id="438" weight="0.44804755538160657">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="PBR" id="439" weight="0.5555127035573407">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="PFE" id="440" weight="0.3739014972225376">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="SHEL" id="441" weight="0.4729649235945839">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="SLB" id="442" weight="0.49634905626019554">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="TMO" id="443" weight="0.6290116864983988">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="TTE" id="444" weight="0.5525041454210641">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="UNH" id="445" weight="0.6244297154302293">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="VLO" target="XOM" id="446" weight="0.7049087818079846">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="WFC" target="AXP" id="447" weight="0.5432019501762929">
-        <attvalues>
-          <attvalue for="0" value="2" />
-        </attvalues>
-      </edge>
-      <edge source="WFC" target="AZN" id="448" weight="0.4417011312296091">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="WFC" target="BAC" id="449" weight="0.5407619394508787">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="WFC" target="C" id="450" weight="0.6071624592852902">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="WFC" target="GS" id="451" weight="0.5441780403417931">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="WFC" target="MA" id="452" weight="0.6360845093014821">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="WFC" target="MS" id="453" weight="0.6664791490654669">
-        <attvalues>
-          <attvalue for="0" value="3" />
-        </attvalues>
-      </edge>
-      <edge source="WFC" target="PYPL" id="454" weight="0.41117938377965946">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="WFC" target="V" id="455" weight="0.3235378680757479">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="AAPL" id="456" weight="0.496653448527851">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="ABBV" id="457" weight="0.528430729957072">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="BP" id="458" weight="0.6312084432032065">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="COP" id="459" weight="0.7728705142488396">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="CVX" id="460" weight="0.8344314128754418">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="DHR" id="461" weight="0.3842261790493559">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="EQNR" id="462" weight="0.6134389326179414">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="GOOGL" id="463" weight="0.35044279034524023">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="JNJ" id="464" weight="0.3631950992815266">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="MRK" id="465" weight="0.40640929303145673">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="PBR" id="466" weight="0.5006170216266738">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="SHEL" id="467" weight="0.5080064889949135">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="SLB" id="468" weight="0.5142457810902349">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="TMO" id="469" weight="0.5147367419722455">
-        <attvalues>
-          <attvalue for="0" value="4" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="TTE" id="470" weight="0.6358181073136718">
-        <attvalues>
-          <attvalue for="0" value="1" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="UNH" id="471" weight="0.4719710559238358">
-        <attvalues>
-          <attvalue for="0" value="5" />
-        </attvalues>
-      </edge>
-      <edge source="XOM" target="VLO" id="472" weight="0.7636222096655779">
-        <attvalues>
-          <attvalue for="0" value="1" />
         </attvalues>
       </edge>
     </edges>

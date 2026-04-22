@@ -1,5 +1,4 @@
 import os
-import pickle
 import json
 import numpy as np
 import pandas as pd
@@ -11,10 +10,7 @@ from scipy.stats import kendalltau
 from sklearn.metrics import normalized_mutual_info_score, adjusted_rand_score
 from networkx.algorithms.community import louvain_communities
 
-
-INPUT_DIR = "../results/grid_search"
-OUTPUT_DIR = "../results/analysis"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+from src.utils import load_graphs
 
 
 sector_map = {
@@ -23,31 +19,6 @@ sector_map = {
     'XOM':'Energy','CVX':'Energy','SHEL':'Energy','BP':'Energy','TTE':'Energy','COP':'Energy','SLB':'Energy','PBR':'Energy','EQNR':'Energy','VLO':'Energy',
     'JNJ':'Healthcare','UNH':'Healthcare','PFE':'Healthcare','ABBV':'Healthcare','LLY':'Healthcare','MRK':'Healthcare','TMO':'Healthcare','AZN':'Healthcare','NVO':'Healthcare','DHR':'Healthcare'
 }
-
-
-def load_graphs():
-    graphs = []
-
-    for folder in os.listdir(INPUT_DIR):
-        path = os.path.join(INPUT_DIR, folder)
-
-        g_path = os.path.join(path, "graph.pkl")
-        m_path = os.path.join(path, "metrics.json")
-
-        if not os.path.exists(g_path):
-            continue
-
-        with open(g_path, "rb") as f:
-            G = pickle.load(f)
-
-        meta = {}
-        if os.path.exists(m_path):
-            with open(m_path, "r") as f:
-                meta = json.load(f)
-
-        graphs.append((folder, G, meta))
-
-    return graphs
 
 
 def safe_modularity(G, comms):
@@ -379,6 +350,7 @@ def main():
             largest_cc = max(nx.connected_components(G), key=len)
         G = G.subgraph(largest_cc).copy()
 
+        from src.utils import OUTPUT_DIR
         out_dir = os.path.join(OUTPUT_DIR, name)
         os.makedirs(out_dir, exist_ok=True)
 

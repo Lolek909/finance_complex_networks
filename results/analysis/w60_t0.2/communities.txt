@@ -1,2 +1,3 @@
-Community 0: ['AXP', 'GS', 'C', 'BAC', 'META', 'AMD', 'PYPL', 'AZN', 'V', 'JPM', 'MA', 'INTC', 'WFC', 'MS', 'TSLA', 'AMZN', 'ADBE']
-Community 1: ['VLO', 'GOOGL', 'JNJ', 'SHEL', 'TTE', 'COP', 'NVDA', 'PBR', 'DHR', 'TMO', 'EQNR', 'AAPL', 'UNH', 'BP', 'PFE', 'SLB', 'LLY', 'MRK', 'ABBV', 'CVX', 'XOM', 'MSFT', 'NVO']
+Community 0: ['INTC', 'SLB', 'JNJ']
+Community 1: ['AMZN', 'ADBE', 'GS', 'NVO', 'BP', 'NVDA', 'EQNR', 'AZN', 'META', 'TSLA', 'AMD', 'TTE', 'MS', 'LLY', 'PFE', 'PYPL', 'CVX', 'SHEL', 'C', 'V']
+Community 2: ['XOM', 'GOOGL', 'AXP', 'TMO', 'UNH', 'JPM', 'ABBV', 'VLO', 'DHR', 'WFC', 'MA', 'COP', 'AAPL', 'BAC', 'PBR', 'MSFT', 'MRK']
