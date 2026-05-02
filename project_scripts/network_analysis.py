@@ -12,14 +12,25 @@ from networkx.algorithms.community import louvain_communities
 
 from src.utils import load_graphs
 
-
-sector_map = {
-    'AAPL':'Tech','MSFT':'Tech','GOOGL':'Tech','AMZN':'Tech','NVDA':'Tech','META':'Tech','TSLA':'Tech','AMD':'Tech','INTC':'Tech','ADBE':'Tech',
-    'JPM':'Finance','BAC':'Finance','GS':'Finance','MS':'Finance','WFC':'Finance','C':'Finance','V':'Finance','MA':'Finance','AXP':'Finance','PYPL':'Finance',
-    'XOM':'Energy','CVX':'Energy','SHEL':'Energy','BP':'Energy','TTE':'Energy','COP':'Energy','SLB':'Energy','PBR':'Energy','EQNR':'Energy','VLO':'Energy',
-    'JNJ':'Healthcare','UNH':'Healthcare','PFE':'Healthcare','ABBV':'Healthcare','LLY':'Healthcare','MRK':'Healthcare','TMO':'Healthcare','AZN':'Healthcare','NVO':'Healthcare','DHR':'Healthcare'
+tickers = {
+    'Tech': [
+        'AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'META', 'TSLA', 'AMD', 'INTC', 'ADBE', 'CRM', 'CSCO', 'ORCL', 'IBM', 'QCOM', 'TXN', 'AVGO', 'NOW', 'INTU', 'AMAT'
+    ],
+    'Finance': [
+        'JPM', 'BAC', 'GS', 'MS', 'WFC', 'C', 'V', 'MA', 'AXP', 'PYPL', 'SPGI', 'BLK', 'SCHW', 'CB', 'CME', 'PGR', 'USB', 'PNC', 'TFC', 'COF'
+    ],
+    'Energy': [
+        'XOM', 'CVX', 'COP', 'SLB', 'VLO', 'MPC', 'PSX', 'EOG', 'OXY', 'HAL', 'KMI', 'WMB', 'BKR', 'FANG', 'DVN', 'TRGP', 'CTRA', 'EQT', 'APA', 'NOV'
+    ],
+    'Healthcare': [
+        'JNJ', 'UNH', 'PFE', 'ABBV', 'LLY', 'MRK', 'TMO', 'DHR', 'ISRG', 'CVS', 'MDT', 'SYK', 'CI', 'VRTX', 'REGN', 'BDX', 'BSX', 'HUM', 'AMGN', 'GILD'
+    ],
+    'Consumer': [
+        'WMT', 'PG', 'KO', 'PEP', 'COST', 'HD', 'MCD', 'NKE', 'SBUX', 'TGT', 'LOW', 'TJX', 'BKNG', 'MAR', 'HLT', 'F', 'GM', 'CMG', 'DG', 'ORLY'
+    ]
 }
 
+sector_map = {ticker: sector for sector, t_list in tickers.items() for ticker in t_list}
 
 def safe_modularity(G, comms):
     if G.number_of_edges() == 0 or len(comms) == 0:
@@ -47,9 +58,7 @@ def community_labels(comms, nodes):
 
 
 def compute_node_sizes(G, nodes):
-
     sizes = []
-
     for n in nodes:
         wdeg = sum(d.get("weight", 0) for _, _, d in G.edges(n, data=True))
         deg = G.degree(n)
@@ -78,7 +87,6 @@ def get_top_edges(G, top_k=40):
 
 
 def plot_dual_view(G, comms, save_path, title):
-
     nodes = list(G.nodes())
     pos = nx.spring_layout(G, seed=42, k=0.8, iterations=120)
 
@@ -96,6 +104,7 @@ def plot_dual_view(G, comms, save_path, title):
         "Finance": 1,
         "Energy": 2,
         "Healthcare": 3,
+        "Consumer": 4,
         "Unknown": -1
     }
 
@@ -108,9 +117,7 @@ def plot_dual_view(G, comms, save_path, title):
 
     fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 
-
     ax = axes[0]
-
     nx.draw_networkx_nodes(
         G, pos,
         node_color=louvain_colors,
@@ -118,7 +125,6 @@ def plot_dual_view(G, comms, save_path, title):
         node_size=node_sizes,
         ax=ax
     )
-
     nx.draw_networkx_edges(
         G, pos,
         edgelist=[(u, v) for u, v, _ in edges],
@@ -126,27 +132,22 @@ def plot_dual_view(G, comms, save_path, title):
         alpha=0.4,
         ax=ax
     )
-
     nx.draw_networkx_labels(G, pos, font_size=8, ax=ax)
 
     edge_labels = {
         (u, v): f"{d.get('weight', 0):.2f}"
         for u, v, d in edges
     }
-
     nx.draw_networkx_edge_labels(
         G, pos,
         edge_labels=edge_labels,
         font_size=7,
         ax=ax
     )
-
     ax.set_title("Louvain communities")
     ax.axis("off")
 
-
     ax = axes[1]
-
     nx.draw_networkx_nodes(
         G, pos,
         node_color=real_colors,
@@ -154,7 +155,6 @@ def plot_dual_view(G, comms, save_path, title):
         node_size=node_sizes,
         ax=ax
     )
-
     nx.draw_networkx_edges(
         G, pos,
         edgelist=[(u, v) for u, v, _ in edges],
@@ -162,19 +162,15 @@ def plot_dual_view(G, comms, save_path, title):
         alpha=0.4,
         ax=ax
     )
-
     nx.draw_networkx_labels(G, pos, font_size=8, ax=ax)
-
     nx.draw_networkx_edge_labels(
         G, pos,
         edge_labels=edge_labels,
         font_size=7,
         ax=ax
     )
-
     ax.set_title("Sektory (rzeczywiste)")
     ax.axis("off")
-
 
     plt.suptitle(title)
     plt.tight_layout()
@@ -183,7 +179,6 @@ def plot_dual_view(G, comms, save_path, title):
 
 
 def analyze(G, meta):
-
     comms = get_louvain(G)
 
     nodes, true_labels = build_labels(G)
@@ -212,7 +207,6 @@ def analyze(G, meta):
     }
 
     return comms, metrics
-
 
 
 def save_degree_distribution(G, out_dir, name):

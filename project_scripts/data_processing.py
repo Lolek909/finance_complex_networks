@@ -1,41 +1,32 @@
+import os
 import numpy as np
 import pandas as pd
 import networkx as nx
-import matplotlib.pyplot as plt
-from collections import defaultdict
+from src.data import get_data, sector_map
+from src.impact_reduction import sector_impact_reduction
+from src.grid_search import grid_search
 
-from src.data import data, sector_map
 
-# 3. Obliczenia log-zwrotów
-log_returns = np.log(data / data.shift(1)).dropna()
-# log_returns = log_returns.resample("5min").mean() # resample
-log_returns = log_returns.clip( # outliery
-    log_returns.quantile(0.01),
-    log_returns.quantile(0.99),
-    axis=1
-)
-log_returns = log_returns.ewm(span=10).mean() # smoothing
 def safe_corr(a, b, lag):
     a_shifted = a.shift(lag)
     combined = pd.concat([a_shifted, b], axis=1)
     combined.columns = ['a', 'b']
     combined = combined.dropna()
-    
+
     if len(combined) < 10:
         print("brak danych", flush=True)
         return 0
-    
+
     if combined['a'].std() < 1e-9 or combined['b'].std() < 1e-9:
         return 0
-        
+
     return combined['a'].corr(combined['b'])
-# 4. Funkcje sieciowe
+
 def calculate_lead_lag_corr(series_a, series_b, max_lag=5):
     corrs = []
     for lag in range(1, max_lag + 1):
-        # A(t-lag) wpływa na B(t)
         c = series_a.shift(lag).corr(series_b)
-        #c = safe_corr(series_a, series_b, lag)
+        # c = safe_corr(series_a, series_b, lag)
         corrs.append(c)
 
     if not corrs or np.all(np.isnan(corrs)):
@@ -60,95 +51,59 @@ def build_network(returns_window, threshold=0.30):
     return G
 
 
-# 5. ZOPTYMALIZOWANA SYMULACJA CZASU I 
+def process_data(data):
+    log_returns = np.log(data / data.shift(1)).dropna()
+    log_returns = log_returns.clip(
+        log_returns.quantile(0.01),
+        log_returns.quantile(0.99),
+        axis=1
+    )
+    log_returns = log_returns.ewm(span=10).mean()
+    return log_returns
+
+
 def main():
-    window_size = 60
-    step = 15
+    datasets = [
+        {"period": "5d", "interval": "5m"},
+        {"period": "1mo", "interval": "1h"},
+        {"period": "1y", "interval": "1d"}
+    ]
 
+    for config in datasets:
+        period = config["period"]
+        interval = config["interval"]
+        dataset_name = f"{interval}_{period}"
 
-    historical_links = defaultdict(list)
-    total_windows = 0
-    nodes = log_returns.columns
+        print(f"Przetwarzanie danych: {dataset_name.upper()}")
 
-    print(f"Rozpoczynam analizę czasową. Całkowita liczba wierszy danych: {len(log_returns)}")
+        try:
+            data = get_data(period=period, interval=interval, volume=False)
+        except Exception as e:
+            print(f"Nie udało się wczytać danych dla {dataset_name}: {e}")
+            continue
 
-    # Pętla symulująca upływ czasu (tylko matematyka, zero grafów)
-    for start_idx in range(0, len(log_returns) - window_size, step):
-        end_idx = start_idx + window_size
-        window_data = log_returns.iloc[start_idx:end_idx]
-        total_windows += 1
+        print("Obliczanie log-zwrotów i czyszczenie...")
+        log_returns = process_data(data)
 
-        for i, t_a in enumerate(nodes):
-            for j, t_b in enumerate(nodes):
-                if i == j: continue
+        print("Redukcja wpływu całego sektora na korelacje...")
+        log_returns = sector_impact_reduction(log_returns, sector_map)
 
-                # Liczymy korelacje bezpośrednio
-                corr, lag = calculate_lead_lag_corr(window_data[t_a], window_data[t_b])
-                if corr > 0.20:  # Próg (threshold)
-                    historical_links[(t_a, t_b)].append(corr)
+        new_out_dir = f"../results/grid_search/{dataset_name}"
+        os.makedirs(new_out_dir, exist_ok=True)
 
-    # 6. WYZNACZANIE RANKINGU
-    print("\n--- RANKING NAJSILNIEJSZYCH RELACJI LEAD-LAG ---")
-    ranking = []
-    for (u, v), weights in historical_links.items():
-        occurrences = len(weights)
-        freq = (occurrences / total_windows) * 100
-        avg_weight = np.mean(weights)
-        ranking.append({"Lead": u, "Lag": v, "Freq": freq, "AvgWeight": avg_weight, "R-kwadrat": f"{avg_weight**2*100}%"})
+        grid_search.OUTPUT_DIR = new_out_dir
 
-    ranking_df = pd.DataFrame(ranking).sort_values(by=['Freq', 'AvgWeight'], ascending=[False, False])
-    print(ranking_df.head(15).to_string(index=False))
+        print(f"Uruchamianie Grid Search... (Zapis do {new_out_dir})")
 
-    # [W tym miejscu zostawiasz stary kod punktu 7 - Wizualizacja grafu dla last_window]
-
-    # 7. WIZUALIZACJA (Dla ostatniego okna, żeby pokazać wagi)
-    print("\nGenerowanie grafu dla OSTATNIEGO dostępnego okna czasowego...")
-    last_window = log_returns.tail(window_size)
-
-            
-    G_final = build_network(last_window, threshold=0.3)  # Wyższy próg dla czytelności grafu
-
-    plt.figure(figsize=(14, 10))
-    pos = nx.spring_layout(G_final, k=0.5, iterations=100)
-
-    color_map = {'Tech': '#1f77b4', 'Finance': '#ff7f0e', 'Energy': '#2ca02c', 'Healthcare': '#d62728'}
-    node_colors = [color_map.get(sector_map.get(node), 'grey') for node in G_final.nodes()]
-
-    # Rysowanie węzłów
-    nx.draw_networkx_nodes(G_final, pos, node_size=700, node_color=node_colors, alpha=0.9)
-    nx.draw_networkx_labels(G_final, pos, font_size=9, font_weight='bold')
-
-    # Rysowanie krawędzi
-    edges = G_final.edges(data=True)
-    if edges:
-        weights_for_plot = [d['weight'] * 5 for u, v, d in edges]
-        nx.draw_networkx_edges(G_final, pos, width=weights_for_plot, edge_color='gray',
-                               alpha=0.4, arrowsize=20, connectionstyle="arc3,rad=0.1")
-
-        # NOWOŚĆ: Rysowanie etykiet (wag) na krawędziach
-        edge_labels = {(u, v): f"{d['weight']:.2f}" for u, v, d in edges}
-        nx.draw_networkx_edge_labels(G_final, pos, edge_labels=edge_labels, font_size=8, label_pos=0.3)
-
-    plt.title("Sieć Zależności Lead-Lag (Ostatnie 60 min)\nWagi widoczne na krawędziach")
-    plt.axis('off')
-    plt.tight_layout()
-    plt.show()
-    
+        grid_search(
+            log_returns,
+            build_network,
+            calculate_lead_lag_corr,
+            sector_map,
+            thresholds=[0.2, 0.3, 0.4],
+            window_sizes=[30, 60, 120],
+            step=15
+        )
 
 if __name__ == '__main__':
-    # main()
-    from src.impact_reduction import sector_impact_reduction
-    from src.grid_search import grid_search
-
-    log_returns = sector_impact_reduction(
-        log_returns,
-        sector_map
-    )
-    grid_search(
-     log_returns,
-     build_network,
-     calculate_lead_lag_corr,
-     sector_map,
-     thresholds=[0.2, 0.3, 0.4],
-     window_sizes=[30, 60, 120],
-     step=15)
+    main()
