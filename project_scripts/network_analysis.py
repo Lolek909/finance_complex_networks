@@ -1,9 +1,11 @@
 import os
 import json
+import matplotlib
 import numpy as np
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
 import seaborn as sns
 from scipy.stats import kendalltau, linregress
 from collections import Counter

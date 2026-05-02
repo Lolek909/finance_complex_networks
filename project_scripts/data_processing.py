@@ -93,7 +93,8 @@ def main():
             thresholds=current_thresholds,
             window_sizes=[30, 60, 120],
             step=15,
-            log_volumes=log_volumes
+            log_volumes=log_volumes,
+            raw_prices=prices
         )
 
 

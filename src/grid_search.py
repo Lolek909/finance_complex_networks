@@ -5,9 +5,12 @@ import pandas as pd
 from collections import defaultdict
 from joblib import Parallel, delayed
 from src.utils import save_all
+from src.epidemic import run_epidemic_simulation
+from src.macro import plot_sector_flow_heatmap
 
 OUTPUT_DIR = "results/grid_search"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 
 def compute_topology_metrics(G):
     if G.number_of_nodes() == 0:
@@ -54,8 +57,7 @@ def process_pair(a, b, win_price_a, win_price_b, vol_a, threshold, evaluate_pair
     return None
 
 
-def grid_search(log_returns, build_network, evaluate_pair, sector_map, thresholds, window_sizes, step,
-                log_volumes=None):
+def grid_search(log_returns, build_network, evaluate_pair, sector_map, thresholds, window_sizes, step, log_volumes=None, raw_prices=None):
     nodes = log_returns.columns
     n_jobs = -1
 
@@ -123,3 +125,22 @@ def grid_search(log_returns, build_network, evaluate_pair, sector_map, threshold
 
             nx.write_gexf(G_mst, f"{out_dir}/graph_mst.gexf")
             print(f"Zakonczenie {name}. Zapisano w {out_dir}")
+
+            if raw_prices is not None:
+                raw_win_price = raw_prices.iloc[-window_size:]
+
+                run_epidemic_simulation(
+                    G=G_final_wta,
+                    raw_prices_window=raw_win_price,
+                    sector_map=sector_map,
+                    out_dir=out_dir,
+                    name=name,
+                    threshold=-0.05
+                )
+
+            plot_sector_flow_heatmap(
+                G=G_final_wta,
+                sector_map=sector_map,
+                out_dir=out_dir,
+                name=name
+            )

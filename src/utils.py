@@ -1,5 +1,7 @@
+import matplotlib
 import networkx as nx
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
 
 import pickle
 import os
