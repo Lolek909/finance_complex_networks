@@ -5,7 +5,8 @@ import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 import seaborn as sns
-from scipy.stats import kendalltau
+from scipy.stats import kendalltau, linregress
+from collections import Counter
 
 from sklearn.metrics import normalized_mutual_info_score, adjusted_rand_score
 from networkx.algorithms.community import louvain_communities
@@ -31,6 +32,7 @@ tickers = {
 }
 
 sector_map = {ticker: sector for sector, t_list in tickers.items() for ticker in t_list}
+
 
 def safe_modularity(G, comms):
     if G.number_of_edges() == 0 or len(comms) == 0:
@@ -213,7 +215,7 @@ def save_degree_distribution(G, out_dir, name):
     degrees = [d for _, d in G.degree()]
     df = pd.DataFrame({"degree": degrees})
     df.to_csv(f"{out_dir}/degree_distribution.csv", index=False)
-    plt.figure(figsize=(7,5))
+    plt.figure(figsize=(7, 5))
     sns.histplot(
         degrees,
         bins=15,
@@ -230,6 +232,7 @@ def save_degree_distribution(G, out_dir, name):
     plt.tight_layout()
     plt.savefig(f"{out_dir}/degree_distribution.png")
     plt.close()
+
 
 def plot_betweenness_centrality(G, out_dir, name):
     betweenness = nx.betweenness_centrality(G)
@@ -262,10 +265,17 @@ def get_node_metrics_df(G) -> pd.DataFrame:
     closeness = nx.closeness_centrality(G)
     clustering = nx.clustering(G_simple)
     pagerank = nx.pagerank(G)
-    degree = dict(G.degree())
+
+    if G.is_directed():
+        in_degree = dict(G.in_degree())
+        out_degree = dict(G.out_degree())
+    else:
+        in_degree = dict(G.degree())
+        out_degree = dict(G.degree())
 
     df = pd.DataFrame({
-        "degree": pd.Series(degree),
+        "out_degree_Lead": pd.Series(out_degree),
+        "in_degree_Lag": pd.Series(in_degree),
         "betweenness": pd.Series(betweenness),
         "closeness": pd.Series(closeness),
         "clustering": pd.Series(clustering),
@@ -273,6 +283,96 @@ def get_node_metrics_df(G) -> pd.DataFrame:
     })
 
     return df.sort_values(by="pagerank", ascending=False)
+
+
+def prove_scale_free_network(G, out_dir, name):
+    degrees = [d for _, d in G.degree()]
+    if not degrees:
+        return 0.0, 0.0
+
+    deg_counts = Counter(degrees)
+    x = np.array(list(deg_counts.keys()))
+    y = np.array(list(deg_counts.values()))
+
+    mask = (x > 0) & (y > 0)
+    x, y = x[mask], y[mask]
+
+    if len(x) < 2:
+        return 0.0, 0.0
+
+    log_x = np.log10(x)
+    log_y = np.log10(y)
+
+    slope, intercept, r_value, p_value, std_err = linregress(log_x, log_y)
+
+    plt.figure(figsize=(8, 6))
+    plt.scatter(log_x, log_y, color='steelblue', label='Dane empiryczne', zorder=5)
+    plt.plot(log_x, intercept + slope * log_x, color='red', linewidth=2,
+             label=f'Regresja liniowa (Nachylenie: {slope:.2f}, R²: {r_value ** 2:.2f})')
+
+    plt.title(f"Dowód na Scale-Free Network (Log-Log) - {name}")
+    plt.xlabel("log10(Stopień węzła)")
+    plt.ylabel("log10(Częstotliwość)")
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(f"{out_dir}/scale_free_proof.png")
+    plt.close()
+
+    return slope, r_value ** 2
+
+
+def compare_wta_mst(G, out_dir, name, percentile=85):
+    edges = list(G.edges(data=True))
+    if not edges: return 0
+
+    weights = [d.get("weight", 0) for _, _, d in edges]
+    threshold_wta = np.percentile(weights, percentile)
+
+    G_wta = nx.DiGraph()
+    G_wta.add_nodes_from(G.nodes())
+    wta_edges = [(u, v, d) for u, v, d in edges if d.get("weight", 0) >= threshold_wta]
+    G_wta.add_edges_from(wta_edges)
+
+    G_undirected = G.to_undirected()
+    H = nx.Graph()
+
+    for u, v, d in G_undirected.edges(data=True):
+        w = d.get("weight", 0)
+        w_cap = min(max(w, -1.0), 1.0)
+        dist = np.sqrt(2 * (1 - w_cap))
+        H.add_edge(u, v, weight=dist, orig_w=w)
+
+    G_mst = nx.minimum_spanning_tree(H, weight='weight')
+
+    wta_set = set([tuple(sorted((u, v))) for u, v in G_wta.edges()])
+    mst_set = set([tuple(sorted((u, v))) for u, v in G_mst.edges()])
+    overlap = wta_set.intersection(mst_set)
+
+    with open(f"{out_dir}/wta_mst_comparison.txt", "w") as f:
+        f.write(f"WTA Edges (Top {100 - percentile}% threshold >= {threshold_wta:.3f}): {G_wta.number_of_edges()}\n")
+        f.write(f"MST Edges (Distance based): {G_mst.number_of_edges()}\n")
+        f.write(f"Core Overlap (Wspólne krawędzie w obu strukturach): {len(overlap)}\n")
+
+    fig, axes = plt.subplots(1, 2, figsize=(16, 7))
+    pos = nx.spring_layout(G_undirected, seed=42)
+
+    nx.draw_networkx_nodes(G_wta, pos, ax=axes[0], node_size=40, node_color="blue", alpha=0.6)
+    nx.draw_networkx_edges(G_wta, pos, ax=axes[0], edge_color="blue", alpha=0.3)
+    axes[0].set_title(f"Winner-Takes-All (Top {100 - percentile}%)")
+    axes[0].axis("off")
+
+    nx.draw_networkx_nodes(G_mst, pos, ax=axes[1], node_size=40, node_color="red", alpha=0.6)
+    nx.draw_networkx_edges(G_mst, pos, ax=axes[1], edge_color="red", alpha=0.5)
+    axes[1].set_title("Minimum Spanning Tree")
+    axes[1].axis("off")
+
+    plt.suptitle(f"WTA vs MST Topology Comparison: {name}", fontsize=16)
+    plt.tight_layout()
+    plt.savefig(f"{out_dir}/wta_vs_mst_visual.png")
+    plt.close()
+
+    return len(overlap)
 
 
 def calculate_kendall_tau(G):
@@ -297,12 +397,19 @@ def calculate_kendall_tau(G):
 
 
 def get_top_nodes(G, n=5):
-    degree = dict(nx.degree(G))
+    if G.is_directed():
+        out_degree = dict(G.out_degree())
+        in_degree = dict(G.in_degree())
+    else:
+        out_degree = dict(G.degree())
+        in_degree = dict(G.degree())
+
     betweenness = nx.betweenness_centrality(G)
     closeness = nx.closeness_centrality(G)
 
     return {
-        "top_degree": sorted(degree, key=degree.get, reverse=True)[:n],
+        "top_out_degree_lead": sorted(out_degree, key=out_degree.get, reverse=True)[:n],
+        "top_in_degree_lag": sorted(in_degree, key=in_degree.get, reverse=True)[:n],
         "top_betweenness": sorted(betweenness, key=betweenness.get, reverse=True)[:n],
         "top_closeness": sorted(closeness, key=closeness.get, reverse=True)[:n]
     }
@@ -325,13 +432,12 @@ def get_diameter_and_shortest_path(G):
 
     return diameter, avg_shortest_path
 
+
 def main():
     graphs = load_graphs()
-
     summary = []
 
     for name, G, meta in graphs:
-
         print(f"Processing {name}")
 
         if G.number_of_nodes() == 0 or G.number_of_edges() == 0:
@@ -354,11 +460,18 @@ def main():
         kendall_corrs = calculate_kendall_tau(G)
         top_n = get_top_nodes(G, n=5)
 
+        slope, r_squared = prove_scale_free_network(G, out_dir, name)
+        mst_wta_overlap = compare_wta_mst(G, out_dir, name, percentile=85)
+
         metrics["experiment"] = name
         metrics["window_size"] = meta.get("window_size")
         metrics["threshold"] = meta.get("threshold")
         metrics["diameter"] = diameter
         metrics["avg_shortest_path"] = avg_shortest_path
+        metrics["scale_free_slope"] = slope
+        metrics["scale_free_R2"] = r_squared
+        metrics["wta_mst_overlap"] = mst_wta_overlap
+
         metrics.update(kendall_corrs)
         metrics.update({k: ", ".join(v) for k, v in top_n.items()})  # Konwersja list na stringi dla CSV
 
