@@ -1,53 +1,29 @@
 import os
 import numpy as np
-import pandas as pd
 import networkx as nx
 from src.data import get_data, sector_map
 from src.impact_reduction import sector_impact_reduction
-from src.grid_search import grid_search
+import src.grid_search
+from src.metrics import evaluate_pair_unified
 
 
-def safe_corr(a, b, lag):
-    a_shifted = a.shift(lag)
-    combined = pd.concat([a_shifted, b], axis=1)
-    combined.columns = ['a', 'b']
-    combined = combined.dropna()
-
-    if len(combined) < 10:
-        print("brak danych", flush=True)
-        return 0
-
-    if combined['a'].std() < 1e-9 or combined['b'].std() < 1e-9:
-        return 0
-
-    return combined['a'].corr(combined['b'])
-
-def calculate_lead_lag_corr(series_a, series_b, max_lag=5):
-    corrs = []
-    for lag in range(1, max_lag + 1):
-        c = series_a.shift(lag).corr(series_b)
-        # c = safe_corr(series_a, series_b, lag)
-        corrs.append(c)
-
-    if not corrs or np.all(np.isnan(corrs)):
-        return 0, 0
-
-    max_c = np.nanmax(corrs)
-    best_lag = np.nanargmax(corrs) + 1
-    return (max_c, best_lag) if not np.isnan(max_c) else (0, 0)
-
-
-def build_network(returns_window, threshold=0.30):
+def build_network_unified(price_window, vol_window=None, threshold=0.30):
     G = nx.DiGraph()
-    nodes = returns_window.columns
+    nodes = price_window.columns
     G.add_nodes_from(nodes)
 
     for i, t_a in enumerate(nodes):
         for j, t_b in enumerate(nodes):
             if i == j: continue
-            corr, lag = calculate_lead_lag_corr(returns_window[t_a], returns_window[t_b])
-            if corr > threshold:
-                G.add_edge(t_a, t_b, weight=corr, lag=lag)
+
+            vol_a = vol_window[t_a] if vol_window is not None else None
+            weight, lag, granger, mi, vp = evaluate_pair_unified(price_window[t_a], price_window[t_b], vol_a)
+
+            if weight > threshold:
+                if vol_window is not None:
+                    G.add_edge(t_a, t_b, weight=weight, lag=lag, granger=granger, mutual_info=mi, vol_price=vp)
+                else:
+                    G.add_edge(t_a, t_b, weight=weight, lag=lag)
     return G
 
 
@@ -63,6 +39,9 @@ def process_data(data):
 
 
 def main():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+
     datasets = [
         {"period": "5d", "interval": "5m"},
         {"period": "1mo", "interval": "1h"},
@@ -74,36 +53,49 @@ def main():
         interval = config["interval"]
         dataset_name = f"{interval}_{period}"
 
-        print(f"Przetwarzanie danych: {dataset_name.upper()}")
+        print(f"\nPrzetwarzanie danych: {dataset_name.upper()}")
 
+        has_volume = True
         try:
-            data = get_data(period=period, interval=interval, volume=False)
+            raw_data = get_data(period=period, interval=interval, volume=True)
+            prices = raw_data['Close']
+            volumes = raw_data['Volume']
         except Exception as e:
-            print(f"Nie udało się wczytać danych dla {dataset_name}: {e}")
-            continue
+            print(f"Brak wolumenu (lub błąd: {e}). Przełączanie na klasyczną korelację...")
+            has_volume = False
+            try:
+                prices = get_data(period=period, interval=interval, volume=False)
+                volumes = None
+            except Exception as e2:
+                print(f"Całkowity błąd wczytywania danych dla {dataset_name}: {e2}")
+                continue
 
-        print("Obliczanie log-zwrotów i czyszczenie...")
-        log_returns = process_data(data)
+        print("Obliczanie przekształceń...")
+        log_returns = process_data(prices)
+        log_volumes = process_data(volumes)
 
         print("Redukcja wpływu całego sektora na korelacje...")
         log_returns = sector_impact_reduction(log_returns, sector_map)
 
-        new_out_dir = f"../results/grid_search/{dataset_name}"
+        new_out_dir = os.path.join(project_root, "results", "grid_search", dataset_name)
         os.makedirs(new_out_dir, exist_ok=True)
+        src.grid_search.OUTPUT_DIR = new_out_dir
 
-        grid_search.OUTPUT_DIR = new_out_dir
+        current_thresholds = [0.5, 1.0, 1.5] if has_volume else [0.2, 0.3, 0.4]
 
-        print(f"Uruchamianie Grid Search... (Zapis do {new_out_dir})")
+        print(f"Uruchamianie Grid Search. Tryb Wolumenu: {has_volume}")
 
-        grid_search(
+        src.grid_search.grid_search(
             log_returns,
-            build_network,
-            calculate_lead_lag_corr,
+            build_network_unified,
+            evaluate_pair_unified,
             sector_map,
-            thresholds=[0.2, 0.3, 0.4],
+            thresholds=current_thresholds,
             window_sizes=[30, 60, 120],
-            step=15
+            step=15,
+            log_volumes=log_volumes
         )
+
 
 if __name__ == '__main__':
     main()

@@ -3,7 +3,6 @@ import networkx as nx
 import numpy as np
 import pandas as pd
 from collections import defaultdict
-
 from src.utils import save_all
 
 OUTPUT_DIR = "results/grid_search"
@@ -14,7 +13,6 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # =========================
 def compute_metrics(G):
     degrees = [d for _, d in G.degree()]
-
     return {
         "nodes": G.number_of_nodes(),
         "edges": G.number_of_edges(),
@@ -25,9 +23,8 @@ def compute_metrics(G):
                       else nx.number_connected_components(G),
     }
 
-def grid_search(log_returns, build_network, calculate_lead_lag_corr,
-                sector_map, thresholds, window_sizes, step):
 
+def grid_search(log_returns, build_network, evaluate_pair, sector_map, thresholds, window_sizes, step, log_volumes=None):
     nodes = log_returns.columns
 
     for window_size in window_sizes:
@@ -39,7 +36,8 @@ def grid_search(log_returns, build_network, calculate_lead_lag_corr,
             total_windows = 0
 
             for start in range(0, len(log_returns) - window_size, step):
-                window = log_returns.iloc[start:start + window_size]
+                win_price = log_returns.iloc[start:start + window_size]
+                win_vol = log_volumes.iloc[start:start + window_size] if log_volumes is not None else None
                 total_windows += 1
 
                 for i, a in enumerate(nodes):
@@ -47,13 +45,13 @@ def grid_search(log_returns, build_network, calculate_lead_lag_corr,
                         if i == j:
                             continue
 
-                        corr, lag = calculate_lead_lag_corr(window[a], window[b])
+                        vol_a = win_vol[a] if win_vol is not None else None
+                        weight, lag, _, _, _ = evaluate_pair(win_price[a], win_price[b], vol_a)
 
-                        if corr > threshold:
-                            historical_links[(a, b)].append(corr)
+                        if weight > threshold:
+                            historical_links[(a, b)].append(weight)
 
             ranking = []
-
             for (u, v), weights in historical_links.items():
                 if len(weights) == 0:
                     continue
@@ -74,9 +72,10 @@ def grid_search(log_returns, build_network, calculate_lead_lag_corr,
                 ascending=False
             )
 
-            # G_final = build_network(log_returns.tail(window_size), threshold)
-            window = log_returns.iloc[-window_size:]
-            G_final = build_network(window, threshold)
+            final_win_price = log_returns.iloc[-window_size:]
+            final_win_vol = log_volumes.iloc[-window_size:] if log_volumes is not None else None
+
+            G_final = build_network(final_win_price, final_win_vol, threshold)
             metrics = compute_metrics(G_final)
 
             metrics.update({
