@@ -13,8 +13,6 @@ from collections import Counter
 from sklearn.metrics import normalized_mutual_info_score, adjusted_rand_score
 from networkx.algorithms.community import louvain_communities
 
-from src.utils import load_graphs
-
 tickers = {
     'Tech': ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'META', 'TSLA', 'AMD', 'INTC', 'ADBE'],
     'Finance': ['JPM', 'BAC', 'GS', 'MS', 'WFC', 'C', 'V', 'MA', 'AXP', 'PYPL'],
@@ -23,7 +21,7 @@ tickers = {
 }
 
 sector_map = {ticker: sector for sector, t_list in tickers.items() for ticker in t_list}
-
+OUTPUT_DIR = "../results/analysis"
 
 def safe_modularity(G, comms):
     if G.number_of_edges() == 0 or len(comms) == 0:
@@ -97,7 +95,6 @@ def plot_dual_view(G, comms, save_path, title):
         "Finance": 1,
         "Energy": 2,
         "Healthcare": 3,
-        "Consumer": 4,
         "Unknown": -1
     }
 
@@ -255,7 +252,23 @@ def get_node_metrics_df(G) -> pd.DataFrame:
     betweenness = nx.betweenness_centrality(G)
     closeness = nx.closeness_centrality(G)
     clustering = nx.clustering(G_simple)
-    pagerank = nx.pagerank(G)
+
+    G_pr = G.copy()
+    for u, v, d in G_pr.edges(data=True):
+        if 'weight' in d:
+            try:
+                w = abs(float(d['weight']))
+                if np.isnan(w) or np.isinf(w):
+                    w = 0.0
+                d['weight'] = w
+            except (ValueError, TypeError):
+                d['weight'] = 0.0
+
+    try:
+        pagerank = nx.pagerank(G_pr, max_iter=1000, weight='weight')
+    except nx.PowerIterationFailedConvergence:
+        print("    [Ostrzeżenie] PageRank nie zbiegł się, przypisuję wartości 0.0.")
+        pagerank = {n: 0.0 for n in G.nodes()}
 
     if G.is_directed():
         in_degree = dict(G.in_degree())
@@ -311,58 +324,6 @@ def prove_scale_free_network(G, out_dir, name):
     plt.close()
 
     return slope, r_value ** 2
-
-
-def compare_wta_mst(G, out_dir, name, percentile=85):
-    edges = list(G.edges(data=True))
-    if not edges: return 0
-
-    weights = [abs(d.get("weight", 0)) for _, _, d in edges]
-    threshold_wta = np.percentile(weights, percentile)
-
-    G_wta = nx.DiGraph()
-    G_wta.add_nodes_from(G.nodes())
-    wta_edges = [(u, v, d) for u, v, d in edges if abs(d.get("weight", 0)) >= threshold_wta]
-    G_wta.add_edges_from(wta_edges)
-
-    G_undirected = G.to_undirected()
-    H = nx.Graph()
-
-    for u, v, d in G_undirected.edges(data=True):
-        w = d.get("weight", 0)
-        dist = np.sqrt(2 * (1 - abs(min(max(w, -1.0), 1.0))))
-        H.add_edge(u, v, weight=dist, orig_w=w)
-
-    G_mst = nx.minimum_spanning_tree(H, weight='weight')
-
-    wta_set = set([tuple(sorted((u, v))) for u, v in G_wta.edges()])
-    mst_set = set([tuple(sorted((u, v))) for u, v in G_mst.edges()])
-    overlap = wta_set.intersection(mst_set)
-
-    with open(f"{out_dir}/wta_mst_comparison.txt", "w", encoding="utf-8") as f:
-        f.write(f"WTA Edges (Top {100 - percentile}% threshold >= {threshold_wta:.3f}): {G_wta.number_of_edges()}\n")
-        f.write(f"MST Edges (Distance based): {G_mst.number_of_edges()}\n")
-        f.write(f"Core Overlap (Wspólne krawędzie w obu strukturach): {len(overlap)}\n")
-
-    fig, axes = plt.subplots(1, 2, figsize=(16, 7))
-    pos = nx.spring_layout(G_undirected, seed=42)
-
-    nx.draw_networkx_nodes(G_wta, pos, ax=axes[0], node_size=40, node_color="blue", alpha=0.6)
-    nx.draw_networkx_edges(G_wta, pos, ax=axes[0], edge_color="blue", alpha=0.3)
-    axes[0].set_title(f"Winner-Takes-All (Top {100 - percentile}%)")
-    axes[0].axis("off")
-
-    nx.draw_networkx_nodes(G_mst, pos, ax=axes[1], node_size=40, node_color="red", alpha=0.6)
-    nx.draw_networkx_edges(G_mst, pos, ax=axes[1], edge_color="red", alpha=0.5)
-    axes[1].set_title("Minimum Spanning Tree")
-    axes[1].axis("off")
-
-    plt.suptitle(f"WTA vs MST Topology Comparison: {name}", fontsize=16)
-    plt.tight_layout()
-    plt.savefig(f"{out_dir}/wta_vs_mst_visual.png")
-    plt.close()
-
-    return len(overlap)
 
 
 def calculate_kendall_tau(G):
@@ -424,67 +385,134 @@ def get_diameter_and_shortest_path(G):
 
 
 def main():
-    graphs = load_graphs()
+    GRID_SEARCH_DIR = "../results/grid_search"
+    MASTER_OUTPUT_DIR = "../results/analysis"
+    os.makedirs(MASTER_OUTPUT_DIR, exist_ok=True)
+
     summary = []
 
-    for name, G, meta in graphs:
-        print(f"Processing {name}")
+    for dataset_name in os.listdir(GRID_SEARCH_DIR):
+        dataset_path = os.path.join(GRID_SEARCH_DIR, dataset_name)
 
-        if G.number_of_nodes() == 0 or G.number_of_edges() == 0:
-            print(f"Pominięto {name} - pusty graf (brak węzłów lub krawędzi)")
+        if not os.path.isdir(dataset_path):
             continue
 
-        if G.is_directed():
-            largest_cc = max(nx.weakly_connected_components(G), key=len)
-        else:
-            largest_cc = max(nx.connected_components(G), key=len)
-        G = G.subgraph(largest_cc).copy()
+        print(f"\n=== Rozpoczynam analizę datasetu: {dataset_name} ===")
 
-        from src.utils import OUTPUT_DIR
-        out_dir = os.path.join(OUTPUT_DIR, name)
-        os.makedirs(out_dir, exist_ok=True)
+        for param_folder in os.listdir(dataset_path):
+            param_path = os.path.join(dataset_path, param_folder)
+            if not os.path.isdir(param_path):
+                continue
 
-        comms, metrics = analyze(G, meta)
+            graph_file = os.path.join(param_path, "graph.gexf")
 
-        diameter, avg_shortest_path = get_diameter_and_shortest_path(G)
-        kendall_corrs = calculate_kendall_tau(G)
-        top_n = get_top_nodes(G, n=5)
+            if not os.path.exists(graph_file):
+                print(f"  [Pominięto] Brak pliku {graph_file}")
+                continue
 
-        slope, r_squared = prove_scale_free_network(G, out_dir, name)
-        mst_wta_overlap = compare_wta_mst(G, out_dir, name, percentile=85)
+            print(f"  -> Przetwarzanie: {param_folder}")
 
-        metrics["experiment"] = name
-        metrics["window_size"] = meta.get("window_size")
-        metrics["threshold"] = meta.get("threshold")
-        metrics["diameter"] = diameter
-        metrics["avg_shortest_path"] = avg_shortest_path
-        metrics["scale_free_slope"] = slope
-        metrics["scale_free_R2"] = r_squared
-        metrics["wta_mst_overlap"] = mst_wta_overlap
+            G = nx.read_gexf(graph_file)
+            if G.number_of_nodes() == 0 or G.number_of_edges() == 0:
+                print(f"  [Pominięto] {param_folder} - pusty graf")
+                continue
 
-        metrics.update(kendall_corrs)
-        metrics.update({k: ", ".join(v) for k, v in top_n.items()})  # Konwersja list na stringi dla CSV
+            if G.is_directed():
+                largest_cc = max(nx.weakly_connected_components(G), key=len)
+            else:
+                largest_cc = max(nx.connected_components(G), key=len)
+            G = G.subgraph(largest_cc).copy()
 
-        summary.append(metrics)
+            try:
+                w_part, t_part = param_folder.split('_')
+                window_size = int(w_part.replace('w', ''))
+                threshold = float(t_part.replace('t', ''))
+            except ValueError:
+                window_size = None
+                threshold = None
 
-        pd.DataFrame([metrics]).to_csv(f"{out_dir}/metrics.csv", index=False)
-        with open(f"{out_dir}/metrics.json", "w", encoding="utf-8") as f:
-            json.dump(metrics, f, indent=4)
+            meta = {
+                "window_size": window_size,
+                "threshold": threshold,
+                "dataset": dataset_name
+            }
 
-        node_metrics_df = get_node_metrics_df(G)
-        node_metrics_df.to_csv(f"{out_dir}/node_metrics_centrality.csv", index_label="Node")
+            out_dir = os.path.join(MASTER_OUTPUT_DIR, dataset_name, param_folder)
+            os.makedirs(out_dir, exist_ok=True)
 
-        with open(f"{out_dir}/communities.txt", "w", encoding="utf-8") as f:
-            for i, c in enumerate(comms):
-                f.write(f"Community {i}: {list(c)}\n")
+            comms, metrics = analyze(G, meta)
+            diameter, avg_shortest_path = get_diameter_and_shortest_path(G)
+            kendall_corrs = calculate_kendall_tau(G)
+            top_n = get_top_nodes(G, n=5)
+            slope, r_squared = prove_scale_free_network(G, out_dir, f"{dataset_name}_{param_folder}")
 
-        plot_dual_view(G, comms, f"{out_dir}/graph_dual.png", name)
-        save_degree_distribution(G, out_dir, name)
+            node_metrics_df = get_node_metrics_df(G)
 
-        plot_betweenness_centrality(G, out_dir, name)
-        plot_closeness_centrality(G, out_dir, name)
+            if G.is_directed():
+                max_out_deg = max(dict(G.out_degree()).values()) if len(G) > 0 else 0
+            else:
+                max_out_deg = max(dict(G.degree()).values()) if len(G) > 0 else 0
 
-    pd.DataFrame(summary).to_csv(f"{OUTPUT_DIR}/summary_all.csv", index=False)
+            top_pr_node = node_metrics_df.index[0] if not node_metrics_df.empty else "Brak"
+            max_pr_val = node_metrics_df['pagerank'].iloc[0] if not node_metrics_df.empty else 0.0
+
+            granger_vals = [float(d.get('granger', 0.0)) for _, _, d in G.edges(data=True)]
+            mi_vals = [float(d.get('mutual_info', 0.0)) for _, _, d in G.edges(data=True)]
+
+            sum_granger = sum(granger_vals)
+            avg_granger = np.mean(granger_vals) if granger_vals else 0.0
+
+            sum_mi = sum(mi_vals)
+            avg_mi = np.mean(mi_vals) if mi_vals else 0.0
+
+            metrics["dataset_name"] = dataset_name
+            metrics["experiment_params"] = param_folder
+            metrics["window_size"] = window_size
+            metrics["threshold"] = threshold
+            metrics["diameter"] = diameter
+            metrics["avg_shortest_path"] = avg_shortest_path
+            metrics["scale_free_slope"] = slope
+            metrics["scale_free_R2"] = r_squared
+            metrics["max_out_degree_lead"] = max_out_deg
+            metrics["top_pagerank_node"] = top_pr_node
+            metrics["max_pagerank_val"] = max_pr_val
+            metrics["sum_granger"] = sum_granger
+            metrics["avg_granger"] = avg_granger
+            metrics["sum_mutual_info"] = sum_mi
+            metrics["avg_mutual_info"] = avg_mi
+
+            metrics.update(kendall_corrs)
+            metrics.update({k: ", ".join(v) for k, v in top_n.items()})
+
+            summary.append(metrics)
+
+            pd.DataFrame([metrics]).to_csv(f"{out_dir}/metrics.csv", index=False)
+            with open(f"{out_dir}/metrics.json", "w", encoding="utf-8") as f:
+                json.dump(metrics, f, indent=4)
+
+            node_metrics_df.to_csv(f"{out_dir}/node_metrics_centrality.csv", index_label="Node")
+
+            with open(f"{out_dir}/communities.txt", "w", encoding="utf-8") as f:
+                for i, c in enumerate(comms):
+                    f.write(f"Community {i}: {list(c)}\n")
+
+            plot_dual_view(G, comms, f"{out_dir}/graph_dual.png", f"{dataset_name} | {param_folder}")
+            save_degree_distribution(G, out_dir, f"{dataset_name}_{param_folder}")
+            plot_betweenness_centrality(G, out_dir, f"{dataset_name}_{param_folder}")
+            plot_closeness_centrality(G, out_dir, f"{dataset_name}_{param_folder}")
+
+    if summary:
+        final_csv_path = os.path.join(MASTER_OUTPUT_DIR, "summary_all.csv")
+        df_summary = pd.DataFrame(summary)
+        cols = ['dataset_name', 'experiment_params', 'window_size', 'threshold'] + \
+               [c for c in df_summary.columns if
+                c not in ['dataset_name', 'experiment_params', 'window_size', 'threshold']]
+        df_summary = df_summary[cols]
+
+        df_summary.to_csv(final_csv_path, index=False)
+        print(f"\nZakończono sukcesem. Utworzono globalny plik z wynikami w: {final_csv_path}")
+    else:
+        print("\nNie znaleziono żadnych danych do podsumowania.")
 
 if __name__ == "__main__":
     main()

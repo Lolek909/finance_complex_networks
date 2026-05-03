@@ -1,2 +1,0 @@
-modularity,nmi,ari,n_communities,nodes,edges,density,avg_degree,experiment,window_size,threshold,diameter,avg_shortest_path,tau_degree_betweenness,tau_degree_closeness,tau_betweenness_closeness,top_degree,top_betweenness,top_closeness
-0.3286996422736847,0.03071620607635623,-0.036118468576932336,3,40,378,0.2423076923076923,18.9,w120_t0.2,120,0.2,4,1.9801282051282052,0.4141369102489445,0.443596540477717,0.4781732335673377,"TTE, JNJ, MS, ABBV, META","SHEL, AMD, AZN, MS, PBR","SHEL, AMD, ADBE, DHR, MS"

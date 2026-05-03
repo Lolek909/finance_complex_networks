@@ -1,2 +1,0 @@
-modularity,nmi,ari,n_communities,nodes,edges,density,avg_degree,experiment,window_size,threshold,diameter,avg_shortest_path,tau_degree_betweenness,tau_degree_closeness,tau_betweenness_closeness,top_degree,top_betweenness,top_closeness
-0.4041385865055998,0.03503743870807141,-0.029179622099976082,3,40,180,0.11538461538461539,9.0,w120_t0.3,120,0.3,0,0,0.6009252125773316,0.563973914676482,0.4325480273974999,"ABBV, COP, TSLA, TTE, BP","AZN, NVDA, SHEL, MS, JNJ","DHR, SHEL, TSLA, AZN, META"

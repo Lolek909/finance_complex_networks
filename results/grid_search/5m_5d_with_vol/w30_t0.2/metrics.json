@@ -1,0 +1,13 @@
+{
+    "nodes": 40,
+    "edges": 1222,
+    "density": 0.7833333333333333,
+    "avg_degree": 61.1,
+    "max_out_degree_lead": 37,
+    "max_in_degree_lag": 36,
+    "components": 1,
+    "window_size": 30,
+    "threshold": 0.2,
+    "n_windows": 24,
+    "mst_edges": 39
+}

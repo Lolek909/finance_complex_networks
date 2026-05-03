@@ -23,7 +23,7 @@ def build_network_unified(price_window, vol_window=None, threshold=0.30):
                 if vol_window is not None:
                     G.add_edge(t_a, t_b, weight=weight, lag=lag, granger=granger, mutual_info=mi, vol_price=vp)
                 else:
-                    G.add_edge(t_a, t_b, weight=weight, lag=lag)
+                    G.add_edge(t_a, t_b, weight=weight, lag=lag, granger=granger)
     return G
 
 
@@ -78,6 +78,8 @@ def main():
 
             print("Redukcja wpływu całego sektora na korelacje...")
             log_returns = sector_impact_reduction(log_returns, sector_map)
+            if log_volumes is not None:
+                log_volumes = sector_impact_reduction(log_volumes, sector_map)
 
             new_out_dir = os.path.join(project_root, "results", "grid_search", dataset_name)
             os.makedirs(new_out_dir, exist_ok=True)
