@@ -162,7 +162,7 @@ def plot_dual_view(G, comms, save_path, title):
     nx.draw_networkx_edges(
         G, pos,
         edgelist=[(u, v) for u, v, _ in edges],
-        width=[d.get("weight", 0.1) * 3 for _, _, d in edges],
+        width=[abs(d.get("weight", 0.1)) * 3 for _, _, d in edges],
         alpha=0.4,
         ax=ax
     )

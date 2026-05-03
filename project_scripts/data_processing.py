@@ -48,54 +48,56 @@ def main():
         {"period": "1y", "interval": "1d"}
     ]
 
+    volume_modes = [True, False]
+
     for config in datasets:
-        period = config["period"]
-        interval = config["interval"]
-        dataset_name = f"{interval}_{period}"
+        for has_volume in volume_modes:
+            period = config["period"]
+            interval = config["interval"]
 
-        print(f"\nPrzetwarzanie danych: {dataset_name.upper()}")
+            mode_suffix = "with_vol" if has_volume else "no_vol"
+            dataset_name = f"{interval}_{period}_{mode_suffix}"
 
-        has_volume = True
-        try:
-            raw_data = get_data(period=period, interval=interval, volume=True)
-            prices = raw_data['Close']
-            volumes = raw_data['Volume']
-        except Exception as e:
-            print(f"Brak wolumenu (lub błąd: {e}). Przełączanie na klasyczną korelację...")
-            has_volume = False
+            print(f"\nPrzetwarzanie danych: {dataset_name.upper()}")
+
             try:
-                prices = get_data(period=period, interval=interval, volume=False)
-                volumes = None
-            except Exception as e2:
-                print(f"Całkowity błąd wczytywania danych dla {dataset_name}: {e2}")
+                if has_volume:
+                    raw_data = get_data(period=period, interval=interval, volume=True)
+                    prices = raw_data['Close']
+                    volumes = raw_data['Volume']
+                else:
+                    prices = get_data(period=period, interval=interval, volume=False)
+                    volumes = None
+            except Exception as e:
+                print(f"Błąd wczytywania danych dla {dataset_name}: {e}. Pomijam.")
                 continue
 
-        print("Obliczanie przekształceń...")
-        log_returns = process_data(prices)
-        log_volumes = process_data(volumes)
+            print("Obliczanie przekształceń...")
+            log_returns = process_data(prices)
+            log_volumes = process_data(volumes) if volumes is not None else None
 
-        print("Redukcja wpływu całego sektora na korelacje...")
-        log_returns = sector_impact_reduction(log_returns, sector_map)
+            print("Redukcja wpływu całego sektora na korelacje...")
+            log_returns = sector_impact_reduction(log_returns, sector_map)
 
-        new_out_dir = os.path.join(project_root, "results", "grid_search", dataset_name)
-        os.makedirs(new_out_dir, exist_ok=True)
-        src.grid_search.OUTPUT_DIR = new_out_dir
+            new_out_dir = os.path.join(project_root, "results", "grid_search", dataset_name)
+            os.makedirs(new_out_dir, exist_ok=True)
+            src.grid_search.OUTPUT_DIR = new_out_dir
 
-        current_thresholds = [0.2, 0.3, 0.4]
+            current_thresholds = [0.2, 0.3, 0.4]
 
-        print(f"Uruchamianie Grid Search. Tryb Wolumenu: {has_volume}")
+            print(f"Uruchamianie Grid Search. Tryb Wolumenu: {has_volume}")
 
-        src.grid_search.grid_search(
-            log_returns,
-            build_network_unified,
-            evaluate_pair_unified,
-            sector_map,
-            thresholds=current_thresholds,
-            window_sizes=[30, 60, 120],
-            step=15,
-            log_volumes=log_volumes,
-            raw_prices=prices
-        )
+            src.grid_search.grid_search(
+                log_returns,
+                build_network_unified,
+                evaluate_pair_unified,
+                sector_map,
+                thresholds=current_thresholds,
+                window_sizes=[30, 60, 120],
+                step=15,
+                log_volumes=log_volumes,
+                raw_prices=prices
+            )
 
 
 if __name__ == '__main__':

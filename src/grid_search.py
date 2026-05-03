@@ -126,18 +126,6 @@ def grid_search(log_returns, build_network, evaluate_pair, sector_map, threshold
             nx.write_gexf(G_mst, f"{out_dir}/graph_mst.gexf")
             print(f"Zakonczenie {name}. Zapisano w {out_dir}")
 
-            if raw_prices is not None:
-                raw_win_price = raw_prices.iloc[-window_size:]
-
-                run_epidemic_simulation(
-                    G=G_final_wta,
-                    raw_prices_window=raw_win_price,
-                    sector_map=sector_map,
-                    out_dir=out_dir,
-                    name=name,
-                    threshold=-0.05
-                )
-
             plot_sector_flow_heatmap(
                 G=G_final_wta,
                 sector_map=sector_map,

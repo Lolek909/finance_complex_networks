@@ -56,7 +56,7 @@ def run_epidemic_simulation(G, raw_prices_window, sector_map, out_dir, name, thr
         nx.draw_networkx_nodes(G, pos, node_color=node_colors, node_size=150, edgecolors='black', linewidths=0.5)
 
         if edges:
-            widths = [d.get("weight", 0.1) * 3 for _, _, d in edges]
+            widths = [abs(d.get("weight", 0.1)) * 3 for _, _, d in edges]
             nx.draw_networkx_edges(G, pos, edgelist=[(u, v) for u, v, _ in edges],
                                    width=widths, alpha=0.3, edge_color='grey', arrows=True, arrowsize=10)
 

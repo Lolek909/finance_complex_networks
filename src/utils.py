@@ -9,8 +9,8 @@ import json
 
 from src.data import sector_map
 
-INPUT_DIR = "./results/grid_search"
-OUTPUT_DIR = "./results/analysis"
+INPUT_DIR = "../results/grid_search"
+OUTPUT_DIR = "../results/analysis"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -30,7 +30,8 @@ def plot_graph(G, path, title, sector_map):
         'Tech': '#1f77b4',
         'Finance': '#ff7f0e',
         'Energy': '#2ca02c',
-        'Healthcare': '#d62728'
+        'Healthcare': '#d62728',
+        'Consumer': '#9467bd'
     }
 
     node_colors = [
@@ -50,7 +51,7 @@ def plot_graph(G, path, title, sector_map):
     edges = list(G.edges(data=True))
 
     if edges:
-        widths = [d.get("weight", 0.1) * 3 for _, _, d in edges]
+        widths = [abs(d.get("weight", 0.1)) * 3 for _, _, d in edges]
 
         nx.draw_networkx_edges(
             G, pos,
