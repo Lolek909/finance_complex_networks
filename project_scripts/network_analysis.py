@@ -64,7 +64,7 @@ def community_labels(comms, nodes):
 def compute_node_sizes(G, nodes):
     sizes = []
     for n in nodes:
-        wdeg = sum(d.get("weight", 0) for _, _, d in G.edges(n, data=True))
+        wdeg = sum(abs(d.get("weight", 0)) for _, _, d in G.edges(n, data=True))
         deg = G.degree(n)
 
         # mix: topology + strength
@@ -84,7 +84,7 @@ def compute_node_sizes(G, nodes):
 def get_top_edges(G, top_k=40):
     edges = sorted(
         G.edges(data=True),
-        key=lambda x: x[2].get("weight", 0),
+        key=lambda x: abs(x[2].get("weight", 0)),
         reverse=True
     )
     return edges[:top_k]
@@ -132,7 +132,7 @@ def plot_dual_view(G, comms, save_path, title):
     nx.draw_networkx_edges(
         G, pos,
         edgelist=[(u, v) for u, v, _ in edges],
-        width=[d.get("weight", 0.1) * 3 for _, _, d in edges],
+        width=[abs(d.get("weight", 0.1)) * 3 for _, _, d in edges],
         alpha=0.4,
         ax=ax
     )
@@ -328,12 +328,12 @@ def compare_wta_mst(G, out_dir, name, percentile=85):
     edges = list(G.edges(data=True))
     if not edges: return 0
 
-    weights = [d.get("weight", 0) for _, _, d in edges]
+    weights = [abs(d.get("weight", 0)) for _, _, d in edges]
     threshold_wta = np.percentile(weights, percentile)
 
     G_wta = nx.DiGraph()
     G_wta.add_nodes_from(G.nodes())
-    wta_edges = [(u, v, d) for u, v, d in edges if d.get("weight", 0) >= threshold_wta]
+    wta_edges = [(u, v, d) for u, v, d in edges if abs(d.get("weight", 0)) >= threshold_wta]
     G_wta.add_edges_from(wta_edges)
 
     G_undirected = G.to_undirected()
@@ -341,8 +341,7 @@ def compare_wta_mst(G, out_dir, name, percentile=85):
 
     for u, v, d in G_undirected.edges(data=True):
         w = d.get("weight", 0)
-        w_cap = min(max(w, -1.0), 1.0)
-        dist = np.sqrt(2 * (1 - w_cap))
+        dist = np.sqrt(2 * (1 - abs(min(max(w, -1.0), 1.0))))
         H.add_edge(u, v, weight=dist, orig_w=w)
 
     G_mst = nx.minimum_spanning_tree(H, weight='weight')
@@ -351,7 +350,7 @@ def compare_wta_mst(G, out_dir, name, percentile=85):
     mst_set = set([tuple(sorted((u, v))) for u, v in G_mst.edges()])
     overlap = wta_set.intersection(mst_set)
 
-    with open(f"{out_dir}/wta_mst_comparison.txt", "w") as f:
+    with open(f"{out_dir}/wta_mst_comparison.txt", "w", encoding="utf-8") as f:
         f.write(f"WTA Edges (Top {100 - percentile}% threshold >= {threshold_wta:.3f}): {G_wta.number_of_edges()}\n")
         f.write(f"MST Edges (Distance based): {G_mst.number_of_edges()}\n")
         f.write(f"Core Overlap (Wspólne krawędzie w obu strukturach): {len(overlap)}\n")
@@ -480,13 +479,13 @@ def main():
         summary.append(metrics)
 
         pd.DataFrame([metrics]).to_csv(f"{out_dir}/metrics.csv", index=False)
-        with open(f"{out_dir}/metrics.json", "w") as f:
+        with open(f"{out_dir}/metrics.json", "w", encoding="utf-8") as f:
             json.dump(metrics, f, indent=4)
 
         node_metrics_df = get_node_metrics_df(G)
         node_metrics_df.to_csv(f"{out_dir}/node_metrics_centrality.csv", index_label="Node")
 
-        with open(f"{out_dir}/communities.txt", "w") as f:
+        with open(f"{out_dir}/communities.txt", "w", encoding="utf-8") as f:
             for i, c in enumerate(comms):
                 f.write(f"Community {i}: {list(c)}\n")
 

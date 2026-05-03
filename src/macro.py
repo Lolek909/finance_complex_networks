@@ -24,15 +24,20 @@ def plot_sector_flow_heatmap(G, sector_map, out_dir, name):
 
     plt.figure(figsize=(10, 8))
 
+    max_val = max(abs(flow_matrix.min().min()), abs(flow_matrix.max().max()))
+    if max_val == 0: max_val = 1
+
     sns.heatmap(
         flow_matrix,
         annot=True,
-        cmap="YlOrRd",
+        cmap="coolwarm",
+        center=0,
+        vmin=-max_val,
+        vmax=max_val,
         fmt=".2f",
         linewidths=.5,
         cbar_kws={'label': 'Zsumowana waga powiązań (Lead -> Lag)'}
     )
-
     plt.title(f"Sector Flow Matrix (Agregacja Makro) - {name}", fontsize=14, pad=15)
     plt.ylabel("Od Sektora (Lead)", fontsize=12, fontweight='bold')
     plt.xlabel("Do Sektora (Lag)", fontsize=12, fontweight='bold')
