@@ -32,20 +32,6 @@ def compute_topology_metrics(G):
     }
     return metrics
 
-
-def build_mst_network(G_weighted):
-    if G_weighted.number_of_edges() == 0:
-        return nx.Graph()
-
-    H = nx.Graph()
-    for u, v, d in G_weighted.edges(data=True):
-        w = d.get("weight", 0)
-        dist = np.sqrt(2 * (1 - min(max(w, -1), 1)))
-        H.add_edge(u, v, weight=dist)
-
-    return nx.minimum_spanning_tree(H, weight='weight')
-
-
 def process_pair(a, b, win_price_a, win_price_b, vol_a, evaluate_pair):
     pearson = win_price_a.corr(win_price_b)
     if abs(pearson) < 0.15:
@@ -112,14 +98,12 @@ def grid_search(log_returns, build_network, evaluate_pair, sector_map, threshold
                 ranking_df = pd.DataFrame(columns=["Lead", "Lag", "Freq", "AvgWeight", "Score"])
 
             G_final_wta = build_network(final_win_price, final_win_vol, threshold)
-            G_mst = build_mst_network(G_final_wta)
 
             metrics = compute_topology_metrics(G_final_wta)
             metrics.update({
                 "window_size": window_size,
                 "threshold": threshold,
                 "n_windows": total_windows,
-                "mst_edges": G_mst.number_of_edges()
             })
 
             name = f"w{window_size}_t{threshold}"
@@ -128,7 +112,6 @@ def grid_search(log_returns, build_network, evaluate_pair, sector_map, threshold
 
             save_all(G_final_wta, ranking_df, metrics, out_dir, name)
 
-            nx.write_gexf(G_mst, f"{out_dir}/graph_mst.gexf")
             print(f"Zakonczenie {name}. Zapisano w {out_dir}")
 
             plot_sector_flow_heatmap(

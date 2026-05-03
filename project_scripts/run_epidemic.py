@@ -7,7 +7,8 @@ from src.epidemic import run_epidemic_simulation
 
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    results_dir = os.path.join(script_dir, "results", "grid_search")
+    project_dir = os.path.dirname(script_dir)
+    results_dir = os.path.join(project_dir, "results", "grid_search")
 
     if not os.path.exists(results_dir):
         print(f"Katalog wyników nie istnieje: {results_dir}")
@@ -73,13 +74,20 @@ def main():
 
                     raw_win_price = prices.iloc[-window_size:]
 
+                    if interval == "5m":
+                        dynamic_threshold = -0.002
+                    elif interval == "1h":
+                        dynamic_threshold = -0.01
+                    else:
+                        dynamic_threshold = -0.04
+
                     run_epidemic_simulation(
                         G=G,
                         raw_prices_window=raw_win_price,
                         sector_map=sector_map,
                         out_dir=config_path,
                         name=config_folder,
-                        threshold=-0.05
+                        threshold=dynamic_threshold
                     )
                 except Exception as e:
                     print(f"Błąd podczas symulacji dla {config_folder}: {e}")
