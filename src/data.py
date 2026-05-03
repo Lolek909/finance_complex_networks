@@ -3,25 +3,10 @@ import pandas as pd
 import yfinance as yf
 
 tickers = {
-    'Tech': [
-        'AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'META', 'TSLA', 'AMD', 'INTC', 'ADBE', 'CRM', 'CSCO', 'ORCL', 'IBM', 'QCOM', 'TXN', 'AVGO', 'NOW', 'INTU', 'AMAT'
-    ],
-
-    'Finance': [
-        'JPM', 'BAC', 'GS', 'MS', 'WFC', 'C', 'V', 'MA', 'AXP', 'PYPL', 'SPGI', 'BLK', 'SCHW', 'CB', 'CME', 'PGR', 'USB', 'PNC', 'TFC', 'COF'
-    ],
-
-    'Energy': [
-        'XOM', 'CVX', 'COP', 'SLB', 'VLO', 'MPC', 'PSX', 'EOG', 'OXY', 'HAL', 'KMI', 'WMB', 'BKR', 'FANG', 'DVN', 'TRGP', 'CTRA', 'EQT', 'APA', 'NOV'
-    ],
-
-     'Healthcare': [
-        'JNJ', 'UNH', 'PFE', 'ABBV', 'LLY', 'MRK', 'TMO', 'DHR', 'ISRG', 'CVS', 'MDT', 'SYK', 'CI', 'VRTX', 'REGN', 'BDX', 'BSX', 'HUM', 'AMGN', 'GILD'
-    ],
-
-    'Consumer': [
-        'WMT', 'PG', 'KO', 'PEP', 'COST', 'HD', 'MCD', 'NKE', 'SBUX', 'TGT', 'LOW', 'TJX', 'BKNG', 'MAR', 'HLT', 'F', 'GM', 'CMG', 'DG', 'ORLY'
-    ]
+    'Tech': ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'META', 'TSLA', 'AMD', 'INTC', 'ADBE'],
+    'Finance': ['JPM', 'BAC', 'GS', 'MS', 'WFC', 'C', 'V', 'MA', 'AXP', 'PYPL'],
+    'Energy': ['XOM', 'CVX', 'SHEL', 'BP', 'TTE', 'COP', 'SLB', 'PBR', 'EQNR', 'VLO'],
+    'Healthcare': ['JNJ', 'UNH', 'PFE', 'ABBV', 'LLY', 'MRK', 'TMO', 'AZN', 'NVO', 'DHR']
 }
 
 all_tickers = [item for sublist in tickers.values() for item in sublist]
