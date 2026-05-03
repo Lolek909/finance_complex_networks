@@ -98,9 +98,17 @@ def grid_search(log_returns, build_network, evaluate_pair, sector_map, threshold
                     "Lead": u,
                     "Lag": v,
                     "Freq": freq,
-                    "AvgWeight": avg_weight,
-                    "Score": freq * avg_weight
+                    "AvgWeight": avg_weight
                 })
+
+            if ranking:
+                min_avg = min(r["AvgWeight"] for r in ranking)
+                max_avg = max(r["AvgWeight"] for r in ranking)
+                range_avg = max_avg - min_avg if max_avg > min_avg else 1e-9
+
+                for r in ranking:
+                    r["AvgWeightScaled"] = (r["AvgWeight"] - min_avg) / range_avg
+                    r["Score"] = r["Freq"] * r["AvgWeightScaled"]
 
             ranking_df = pd.DataFrame(ranking).sort_values(by="Score", ascending=False)
 

@@ -12,6 +12,8 @@ def build_network_unified(price_window, vol_window=None, threshold=0.30):
     nodes = price_window.columns
     G.add_nodes_from(nodes)
 
+    temp_edges = []
+
     for i, t_a in enumerate(nodes):
         for j, t_b in enumerate(nodes):
             if i == j: continue
@@ -20,10 +22,35 @@ def build_network_unified(price_window, vol_window=None, threshold=0.30):
             weight, lag, granger, mi, vp = evaluate_pair_unified(price_window[t_a], price_window[t_b], vol_a)
 
             if weight > threshold:
-                if vol_window is not None:
-                    G.add_edge(t_a, t_b, weight=weight, lag=lag, granger=granger, mutual_info=mi, vol_price=vp)
-                else:
-                    G.add_edge(t_a, t_b, weight=weight, lag=lag)
+                temp_edges.append({
+                    "u": t_a, "v": t_b, "weight": weight,
+                    "lag": lag, "granger": granger, "mutual_info": mi, "vol_price": vp
+                })
+
+    if not temp_edges:
+        return G
+
+    raw_weights = [edge["weight"] for edge in temp_edges]
+    min_w = min(raw_weights)
+    max_w = max(raw_weights)
+    range_w = max_w - min_w if max_w > min_w else 1e-9
+
+    for edge in temp_edges:
+        scaled_weight = (edge["weight"] - min_w) / range_w
+
+        if vol_window is not None:
+            G.add_edge(edge["u"], edge["v"],
+                       weight=scaled_weight,
+                       raw_weight=edge["weight"],
+                       lag=edge["lag"],
+                       granger=edge["granger"],
+                       mutual_info=edge["mutual_info"],
+                       vol_price=edge["vol_price"])
+        else:
+            G.add_edge(edge["u"], edge["v"],
+                       weight=scaled_weight,
+                       raw_weight=edge["weight"],
+                       lag=edge["lag"])
     return G
 
 
