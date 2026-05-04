@@ -3,6 +3,9 @@ import re
 import networkx as nx
 from src.data import get_data, sector_map
 from src.epidemic import run_epidemic_simulation
+from src.epidemic_icm import run_epidemic_simulation_icm
+
+
 
 
 def main():
@@ -81,14 +84,24 @@ def main():
                     else:
                         dynamic_threshold = -0.04
 
-                    run_epidemic_simulation(
+                    # run_epidemic_simulation(
+                    #     G=G,
+                    #     raw_prices_window=raw_win_price,
+                    #     sector_map=sector_map,
+                    #     out_dir=config_path,
+                    #     name=config_folder,
+                    #     threshold=dynamic_threshold
+                    # )
+                    run_epidemic_simulation_icm(
                         G=G,
                         raw_prices_window=raw_win_price,
                         sector_map=sector_map,
                         out_dir=config_path,
                         name=config_folder,
-                        threshold=dynamic_threshold
+                        threshold=dynamic_threshold,
+                        # infection_prob=None  →  użyje wag z grafu automatycznie
                     )
+
                 except Exception as e:
                     print(f"Błąd podczas symulacji dla {config_folder}: {e}")
 

@@ -6,3 +6,4 @@ matplotlib==3.10.8
 scikit-learn==1.8.0
 seaborn==0.13.2
 joblib==1.5.3
+ndlib==5.1.1
