@@ -1,0 +1,7 @@
+{
+    "cascade_size": 28,
+    "cascade_ratio": 0.7,
+    "steps_to_convergence": 7,
+    "initial_density": 0.078125,
+    "final_density_proxy": 0.023437500000000003
+}
