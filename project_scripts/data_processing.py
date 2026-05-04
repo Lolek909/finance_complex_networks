@@ -1,154 +1,106 @@
+import os
 import numpy as np
-import pandas as pd
 import networkx as nx
-import matplotlib.pyplot as plt
-from collections import defaultdict
-
-from src.data import data, sector_map
-
-# 3. Obliczenia log-zwrotów
-log_returns = np.log(data / data.shift(1)).dropna()
-# log_returns = log_returns.resample("5min").mean() # resample
-log_returns = log_returns.clip( # outliery
-    log_returns.quantile(0.01),
-    log_returns.quantile(0.99),
-    axis=1
-)
-log_returns = log_returns.ewm(span=10).mean() # smoothing
-def safe_corr(a, b, lag):
-    a_shifted = a.shift(lag)
-    combined = pd.concat([a_shifted, b], axis=1)
-    combined.columns = ['a', 'b']
-    combined = combined.dropna()
-    
-    if len(combined) < 10:
-        print("brak danych", flush=True)
-        return 0
-    
-    if combined['a'].std() < 1e-9 or combined['b'].std() < 1e-9:
-        return 0
-        
-    return combined['a'].corr(combined['b'])
-# 4. Funkcje sieciowe
-def calculate_lead_lag_corr(series_a, series_b, max_lag=5):
-    corrs = []
-    for lag in range(1, max_lag + 1):
-        # A(t-lag) wpływa na B(t)
-        c = series_a.shift(lag).corr(series_b)
-        #c = safe_corr(series_a, series_b, lag)
-        corrs.append(c)
-
-    if not corrs or np.all(np.isnan(corrs)):
-        return 0, 0
-
-    max_c = np.nanmax(corrs)
-    best_lag = np.nanargmax(corrs) + 1
-    return (max_c, best_lag) if not np.isnan(max_c) else (0, 0)
+from src.data import get_data, sector_map
+from src.impact_reduction import sector_impact_reduction
+import src.grid_search
+from src.metrics import evaluate_pair_unified
 
 
-def build_network(returns_window, threshold=0.30):
+def build_network_unified(price_window, vol_window=None, threshold=0.30):
     G = nx.DiGraph()
-    nodes = returns_window.columns
+    nodes = price_window.columns
     G.add_nodes_from(nodes)
 
     for i, t_a in enumerate(nodes):
         for j, t_b in enumerate(nodes):
             if i == j: continue
-            corr, lag = calculate_lead_lag_corr(returns_window[t_a], returns_window[t_b])
-            if corr > threshold:
-                G.add_edge(t_a, t_b, weight=corr, lag=lag)
+
+            vol_a = vol_window[t_a] if vol_window is not None else None
+            weight, lag, granger, mi, vp = evaluate_pair_unified(price_window[t_a], price_window[t_b], vol_a)
+
+            if abs(weight) > threshold:
+                if vol_window is not None:
+                    G.add_edge(t_a, t_b, weight=weight, lag=lag, granger=granger, mutual_info=mi, vol_price=vp)
+                else:
+                    G.add_edge(t_a, t_b, weight=weight, lag=lag, granger=granger)
     return G
 
 
-# 5. ZOPTYMALIZOWANA SYMULACJA CZASU I 
+def process_data(data):
+    log_returns = np.log(data / data.shift(1)).dropna()
+    log_returns = log_returns.clip(
+        log_returns.quantile(0.01),
+        log_returns.quantile(0.99),
+        axis=1
+    )
+    log_returns = log_returns.ewm(span=10).mean()
+    return log_returns
+
+
 def main():
-    window_size = 60
-    step = 15
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
 
+    datasets = [
+        {"period": "5d", "interval": "5m"},
+        {"period": "1mo", "interval": "1h"},
+        {"period": "1y", "interval": "1d"}
+    ]
 
-    historical_links = defaultdict(list)
-    total_windows = 0
-    nodes = log_returns.columns
+    volume_modes = [True, False]
 
-    print(f"Rozpoczynam analizę czasową. Całkowita liczba wierszy danych: {len(log_returns)}")
+    for config in datasets:
+        for has_volume in volume_modes:
+            period = config["period"]
+            interval = config["interval"]
 
-    # Pętla symulująca upływ czasu (tylko matematyka, zero grafów)
-    for start_idx in range(0, len(log_returns) - window_size, step):
-        end_idx = start_idx + window_size
-        window_data = log_returns.iloc[start_idx:end_idx]
-        total_windows += 1
+            mode_suffix = "with_vol" if has_volume else "no_vol"
+            dataset_name = f"{interval}_{period}_{mode_suffix}"
 
-        for i, t_a in enumerate(nodes):
-            for j, t_b in enumerate(nodes):
-                if i == j: continue
+            print(f"\nPrzetwarzanie danych: {dataset_name.upper()}")
 
-                # Liczymy korelacje bezpośrednio
-                corr, lag = calculate_lead_lag_corr(window_data[t_a], window_data[t_b])
-                if corr > 0.20:  # Próg (threshold)
-                    historical_links[(t_a, t_b)].append(corr)
+            try:
+                if has_volume:
+                    raw_data = get_data(period=period, interval=interval, volume=True)
+                    prices = raw_data['Close']
+                    volumes = raw_data['Volume']
+                else:
+                    prices = get_data(period=period, interval=interval, volume=False)
+                    volumes = None
+            except Exception as e:
+                print(f"Błąd wczytywania danych dla {dataset_name}: {e}. Pomijam.")
+                continue
 
-    # 6. WYZNACZANIE RANKINGU
-    print("\n--- RANKING NAJSILNIEJSZYCH RELACJI LEAD-LAG ---")
-    ranking = []
-    for (u, v), weights in historical_links.items():
-        occurrences = len(weights)
-        freq = (occurrences / total_windows) * 100
-        avg_weight = np.mean(weights)
-        ranking.append({"Lead": u, "Lag": v, "Freq": freq, "AvgWeight": avg_weight, "R-kwadrat": f"{avg_weight**2*100}%"})
+            print("Obliczanie przekształceń...")
+            log_returns = process_data(prices)
+            log_volumes = process_data(volumes) if volumes is not None else None
 
-    ranking_df = pd.DataFrame(ranking).sort_values(by=['Freq', 'AvgWeight'], ascending=[False, False])
-    print(ranking_df.head(15).to_string(index=False))
+            print("Redukcja wpływu całego sektora na korelacje...")
+            log_returns = sector_impact_reduction(log_returns, sector_map)
+            if log_volumes is not None:
+                log_volumes = sector_impact_reduction(log_volumes, sector_map)
 
-    # [W tym miejscu zostawiasz stary kod punktu 7 - Wizualizacja grafu dla last_window]
+            new_out_dir = os.path.join(project_root, "results", "grid_search", dataset_name)
+            os.makedirs(new_out_dir, exist_ok=True)
+            src.grid_search.OUTPUT_DIR = new_out_dir
 
-    # 7. WIZUALIZACJA (Dla ostatniego okna, żeby pokazać wagi)
-    print("\nGenerowanie grafu dla OSTATNIEGO dostępnego okna czasowego...")
-    last_window = log_returns.tail(window_size)
+            current_thresholds = [0.2, 0.3, 0.4]
 
-            
-    G_final = build_network(last_window, threshold=0.3)  # Wyższy próg dla czytelności grafu
+            print(f"Uruchamianie Grid Search. Tryb Wolumenu: {has_volume}")
 
-    plt.figure(figsize=(14, 10))
-    pos = nx.spring_layout(G_final, k=0.5, iterations=100)
+            src.grid_search.grid_search(
+                log_returns,
+                build_network_unified,
+                evaluate_pair_unified,
+                sector_map,
+                thresholds=current_thresholds,
+                window_sizes=[30, 60, 120],
+                step=15,
+                log_volumes=log_volumes,
+                raw_prices=prices
+            )
 
-    color_map = {'Tech': '#1f77b4', 'Finance': '#ff7f0e', 'Energy': '#2ca02c', 'Healthcare': '#d62728'}
-    node_colors = [color_map.get(sector_map.get(node), 'grey') for node in G_final.nodes()]
-
-    # Rysowanie węzłów
-    nx.draw_networkx_nodes(G_final, pos, node_size=700, node_color=node_colors, alpha=0.9)
-    nx.draw_networkx_labels(G_final, pos, font_size=9, font_weight='bold')
-
-    # Rysowanie krawędzi
-    edges = G_final.edges(data=True)
-    if edges:
-        weights_for_plot = [d['weight'] * 5 for u, v, d in edges]
-        nx.draw_networkx_edges(G_final, pos, width=weights_for_plot, edge_color='gray',
-                               alpha=0.4, arrowsize=20, connectionstyle="arc3,rad=0.1")
-
-        # NOWOŚĆ: Rysowanie etykiet (wag) na krawędziach
-        edge_labels = {(u, v): f"{d['weight']:.2f}" for u, v, d in edges}
-        nx.draw_networkx_edge_labels(G_final, pos, edge_labels=edge_labels, font_size=8, label_pos=0.3)
-
-    plt.title("Sieć Zależności Lead-Lag (Ostatnie 60 min)\nWagi widoczne na krawędziach")
-    plt.axis('off')
-    plt.tight_layout()
-    plt.show()
-    
 
 if __name__ == '__main__':
-    # main()
-    from src.impact_reduction import sector_impact_reduction
-    from src.grid_search import grid_search
-
-    log_returns = sector_impact_reduction(
-        log_returns,
-        sector_map
-    )
-    grid_search(
-     log_returns,
-     build_network,
-     calculate_lead_lag_corr,
-     sector_map,
-     thresholds=[0.2, 0.3, 0.4],
-     window_sizes=[30, 60, 120],
-     step=15)
+    main()

@@ -1,2 +1,0 @@
-modularity,nmi,ari,n_communities,nodes,edges,density,avg_degree,experiment,window_size,threshold,diameter,avg_shortest_path,tau_degree_betweenness,tau_degree_closeness,tau_betweenness_closeness,top_degree,top_betweenness,top_closeness
-0.3066642661708811,0.02471047018162686,-0.013524264120922832,2,40,751,0.4814102564102564,37.55,w30_t0.2,30,0.2,3,1.5217948717948717,0.3426372943346725,0.3172100485811208,-0.05862769029038255,"CVX, DHR, PYPL, EQNR, ADBE","DHR, UNH, ADBE, CVX, TMO","TSLA, META, MS, PYPL, AXP"
