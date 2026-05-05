@@ -1,0 +1,9 @@
+{
+    "cascade_size": 29,
+    "real_negative_moves": 28,
+    "dice": 0.5490196077354863,
+    "iou": 0.3783783782761139,
+    "threshold_real": -1,
+    "intersection": 14,
+    "union": 37
+}
